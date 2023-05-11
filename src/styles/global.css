@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Glamour";
+    src: url("../GlamourAbsolute_Regular.otf");
+}
+
+@font-face {
+    font-family: "ApercuPro";
+    font-weight: 400;
+    src: url("../ApercuPro-Regular.ttf");
+    src: url("../ApercuPro-Regular.woff");
+    src: url("../ApercuPro-Regular.woff2");
+}
+@font-face {
+    font-family: "ApercuPro";
+    font-weight: 700;
+    src: url("../ApercuPro-Bold.ttf");
+    src: url("../ApercuPro-Bold.woff");
+    src: url("../ApercuPro-Bold.woff2");
+}

@@ -1,0 +1,14 @@
+---
+export interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="flex gap-2 items-center">
+    <hr class="w-8 h-[1px] border-slate-700 border-t-2" />
+    <p class="text-sm text-slate-600 tracking-widest uppercase font-bold">
+        {text}
+    </p>
+</div>

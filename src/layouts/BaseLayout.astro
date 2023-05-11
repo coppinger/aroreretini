@@ -1,13 +1,22 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import SideMenu from "../components/side-menu/SideMenu.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body></body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="bg-slate-950 text-slate-200 font-apercu">
+        <div class="w-full h-3 bg-pink-500"></div>
+        <div class="w-full h-3 bg-violet-700"></div>
+        <div class="w-full h-3 bg-blue-900"></div>
+        <div class="max-w-6xl p-4 md:p-8 mx-auto flex md:gap-8">
+            <SideMenu />
+            <slot name="main" />
+        </div>
+    </body>
 </html>
