@@ -13,7 +13,9 @@ const isNaked = style === "naked";
     href=""
     class={classNames(
         "inline-block w-fit text-xs uppercase tracking-widest font-bold",
-        !isNaked ? "px-6 py-4" : "",
+        !isNaked
+            ? "px-6 py-4"
+            : "hover:translate-x-1 transition-all ease-out duration-300",
         isPrimary
             ? "bg-slate-100 text-slate-950"
             : isSecondary
