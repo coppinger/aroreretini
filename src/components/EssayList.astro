@@ -3,6 +3,8 @@
 const { pathname } = Astro.url;
 const url = pathname.split("/");
 
+import className from "classnames";
+
 import Button from "../components/Button.astro";
 
 import EssayListItem from "./EssayListItem.astro";
@@ -21,9 +23,13 @@ dummyBlogData.map(([href, date, title, isFeatured]) => {
 import H4 from "../components/H4.astro";
 ---
 
-<div class="flex flex-col gap-8 border-2 border-slate-700 p-8">
+<div
+    class={className(
+        "flex flex-col gap-8 border-2 border-slate-700 p-8",
+        !url[1] ? "order-3" : ""
+    )}
+>
     {!url[1] ? <h3>Essays</h3> : ""}
-
     {featuredEssays.length ? <H4 text="FEATURED ESSAYS" /> : ""}
     {
         featuredEssays.map(([href, date, title, isFeatured]) => (
