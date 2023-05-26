@@ -1,0 +1,8 @@
+---
+const { href, date, title, isFeatured } = Astro.props;
+---
+
+<a class="flex gap-6" href={href}>
+    <p class="text-slate-400 w-16">{date}</p>
+    <p>{title}</p>
+</a>

@@ -1,14 +1,17 @@
 ---
 import classNames from "classnames";
 
-const { iconPath, fillColor, iconSize } = Astro.props;
+import iconList from "../iconList.js";
+
+const { iconName, color, iconSize } = Astro.props;
+const fillColor = `fill-${color}-950`;
 ---
 
 <svg
     viewBox="0 0 24 24"
     style={{ width: iconSize, height: iconSize }}
-    class={classNames(fillColor)}
+    class={color ? classNames(fillColor) : classNames("fill-white")}
     xmlns="http://www.w3.org/2000/svg"
 >
-    <path d={iconPath}></path>
+    <path d={iconList[iconName] || iconList.empty}></path>
 </svg>

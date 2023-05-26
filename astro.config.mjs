@@ -7,10 +7,17 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
-  integrations: [mdx(), sitemap(), tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), image()]
+    site: "https://example.com",
+    integrations: [
+        mdx(),
+        sitemap(),
+        tailwind({
+            config: {
+                applyBaseStyles: false,
+            },
+        }),
+        image({
+            serviceEntryPoint: "@astrojs/image/sharp",
+        }),
+    ],
 });

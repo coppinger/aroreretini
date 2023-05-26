@@ -24,10 +24,7 @@
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
     @apply font-glamour text-white;
 }
 
@@ -35,8 +32,16 @@ h2 {
     @apply text-3xl;
 }
 
+h3 {
+    @apply text-xl;
+}
+
+h4 {
+    @apply text-slate-400 text-sm uppercase tracking-widest font-bold;
+}
+
 hr {
-    @apply border-slate-700 border;
+    @apply inline-block w-full border-slate-700 border-b-2 border-t-0;
 }
 
 .anchor {

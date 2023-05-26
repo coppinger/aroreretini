@@ -1,18 +1,13 @@
 ---
 import className from "classnames";
 
-import iconList from "../iconList.js";
-
 import Icon from "./Icon.astro";
 
 const { href, text, color, iconName, leading, trailing, iconSize } =
     Astro.props;
 
-const iconPath = iconList[iconName];
-
 const textColor = `text-${color}-950`;
 const badgeColor = `bg-${color}-300`;
-const fillColor = `fill-${color}-300`;
 ---
 
 <a
@@ -22,10 +17,6 @@ const fillColor = `fill-${color}-300`;
         badgeColor,
         textColor
     )}
-    ><Icon
-        fillColor={fillColor}
-        iconPath={iconPath || iconList.empty}
-        iconSize={iconSize}
-    />
+    ><Icon color={color} iconName={iconName} iconSize="16px" />
     {text}
 </a>

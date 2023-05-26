@@ -1,0 +1,61 @@
+---
+// @ts-nocheck
+const { pathname } = Astro.url;
+const url = pathname.split("/");
+
+import Button from "../components/Button.astro";
+
+import EssayListItem from "./EssayListItem.astro";
+const { dummyBlogData } = Astro.props;
+let featuredEssays = [];
+let latestEssays = [];
+
+dummyBlogData.map(([href, date, title, isFeatured]) => {
+    if (isFeatured === true) {
+        featuredEssays.push([href, date, title, isFeatured]);
+    } else {
+        latestEssays.push([href, date, title, isFeatured]);
+    }
+});
+
+import H4 from "../components/H4.astro";
+---
+
+<div class="flex flex-col gap-8 border-2 border-slate-700 p-8">
+    {!url[1] ? <h3>Essays</h3> : ""}
+
+    {featuredEssays.length ? <H4 text="FEATURED ESSAYS" /> : ""}
+    {
+        featuredEssays.map(([href, date, title, isFeatured]) => (
+            <EssayListItem
+                href={href}
+                date={date}
+                title={title}
+                isFeatured={isFeatured}
+            />
+        ))
+    }
+    {featuredEssays.length ? <H4 text="LATEST ESSAYS" /> : ""}
+    {
+        latestEssays.map(([href, date, title, isFeatured]) => (
+            <EssayListItem
+                href={href}
+                date={date}
+                title={title}
+                isFeatured={isFeatured}
+            />
+        ))
+    }
+    {
+        !url[1] ? (
+            <Button
+                style="naked"
+                text="VIEW ESSAYS →"
+                href="#"
+                extraClasses="self-end"
+            />
+        ) : (
+            ""
+        )
+    }
+</div>
