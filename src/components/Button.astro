@@ -1,0 +1,26 @@
+---
+import classNames from "classnames";
+
+const { href, text, icon, style, extraClasses } = Astro.props;
+
+const isPrimary = style === "primary";
+const isSecondary = style === "secondary";
+const isTertiary = style === "tertiary";
+const isNaked = style === "naked";
+---
+
+<a
+    href=""
+    class={classNames(
+        "inline-block w-fit text-xs uppercase tracking-widest font-bold",
+        !isNaked ? "px-6 py-4" : "",
+        isPrimary
+            ? "bg-slate-100 text-slate-950"
+            : isSecondary
+            ? "border-2 border-slate-100 text-slate-100"
+            : isTertiary
+            ? "text-slate-100"
+            : "",
+        extraClasses
+    )}>{text}</a
+>

@@ -21,3 +21,28 @@
     src: url("../ApercuPro-Bold.woff");
     src: url("../ApercuPro-Bold.woff2");
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-glamour text-white;
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+hr {
+    @apply border-slate-700 border;
+}
+
+.anchor {
+    @apply underline underline-offset-4 transition-all ease-in-out;
+}
+
+.anchor:hover {
+    @apply opacity-80 transition-all ease-in-out underline-offset-2;
+}

@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import SideMenu from "../components/side-menu/SideMenu.astro";
+import TopBar from "../components/TopBar.astro";
+import SideMenu from "../components/layout/side-menu/SideMenu.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -16,7 +17,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <div class="w-full h-3 bg-blue-900"></div>
         <div class="max-w-6xl p-4 md:p-8 mx-auto flex md:gap-8">
             <SideMenu />
-            <slot name="main" />
+            <div class="flex flex-col gap-8">
+                <TopBar />
+                <slot name="main" />
+            </div>
         </div>
     </body>
 </html>

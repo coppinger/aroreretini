@@ -1,0 +1,21 @@
+---
+import Breadcrumb from "./Breadcrumb.astro";
+
+const { pathname } = Astro.url;
+const urls = pathname.split("/");
+---
+
+<div
+    class="h-14 flex flex-col items-start sm:flex-row sm:gap-2 sm:items-center"
+>
+    {
+        pathname == "/" ? (
+            <>
+                <p class="text-slate-400">te reo Maori:</p>
+                <p>(noun) attention goes to many things. (ADHD)</p>
+            </>
+        ) : (
+            <Breadcrumb urls={urls} />
+        )
+    }
+</div>

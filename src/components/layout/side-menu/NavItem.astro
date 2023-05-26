@@ -10,7 +10,7 @@ const { title, subTitle, href } = Astro.props;
 
 <li>
     <a
-        href={href}
+        href=`/${href}`
         class="flex flex-col border-l-2 border-slate-700 hover:border-white active:border-white pl-6 transition-all duration-200 ease-in-out h-[44px] justify-center"
     >
         <span class="text-slate-400 text-xl">{title}</span>

@@ -1,0 +1,18 @@
+---
+const { pathname } = Astro.url;
+const urls = pathname.split("/");
+---
+
+<>
+    <a href="/" class="text-slate-400"> Index</a>
+    <span class="text-slate-700"> /</span>
+    <!-- Child -->
+    <a class="capitalize text-slate-400" href=`/${urls[1]}`>
+        {urls[1]}
+    </a>
+    <!-- Grandchild -->
+    {urls[2] ? <span class="text-slate-700"> / </span> : ""}
+    <a class="capitalize text-slate-400" href={urls[2]}>
+        {urls[2]}
+    </a>
+</>

@@ -1,0 +1,14 @@
+---
+import classNames from "classnames";
+
+const { iconPath, fillColor, iconSize } = Astro.props;
+---
+
+<svg
+    viewBox="0 0 24 24"
+    style={{ width: iconSize, height: iconSize }}
+    class={classNames(fillColor)}
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path d={iconPath}></path>
+</svg>
