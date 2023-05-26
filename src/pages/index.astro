@@ -9,14 +9,22 @@ import Badge from "../components/Badge.astro";
 import Icon from "../components/Icon.astro";
 import portrait from "../images/portrait.jpg";
 import EssayList from "../components/EssayList.astro";
+import ProjectsListItem from "../components/ProjectsListItem.astro";
+import NavSubTitle from "../components/layout/side-menu/NavSubTitle.astro";
 
 const dummyBlogData = [
-    ["#", "2nd May", "How & why I made this site", false],
+    ["#", "2nd May", "How & why I made this site", true],
     ["#", "1st May", "Things that have changed my life", false],
     ["#", "2nd May", "The Bounty of the Sand Dollars", true],
     ["#", "1st May", "Placeholder title, innit", false],
     ["#", "1st May", "Lorem ipsum dolor sit amet", false],
     ["#", "23nd Apr", "Hello, World", false],
+];
+
+const dummyProjectsData = [
+    ["#", "May 2023", "Bookstop", "Active"],
+    ["#", "May 2023", "Illuminati Revival Band", "Paused"],
+    ["#", "May 2023", "Pokemon Clone", "Dead"],
 ];
 ---
 
@@ -160,6 +168,25 @@ const dummyBlogData = [
                             />
                         </div>
                         <EssayList dummyBlogData={dummyBlogData} />
+                        <div
+                            class="flex flex-col gap-8 border-2 border-slate-700 p-8"
+                        >
+                            <h3>Projects</h3>
+                            {
+                                dummyProjectsData.map(
+                                    ([href, date, title, status]) => {
+                                        return (
+                                            <ProjectsListItem
+                                                href={href}
+                                                title={title}
+                                                date={date}
+                                                status={status}
+                                            />
+                                        );
+                                    }
+                                )
+                            }
+                        </div>
                     </div>
                     <div class="w-52 h-fit flex flex-col gap-16">
                         <div class="relative">

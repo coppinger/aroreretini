@@ -1,0 +1,12 @@
+---
+const { href, date, title, status } = Astro.props;
+import Badge from "./Badge.astro";
+---
+
+<a class="flex gap-6 w-full" href={href}>
+    <p class="text-slate-400 w-24 shrink-0">{date}</p>
+    <p class="hover:translate-x-1 transition-all ease-out duration-300 w-full">
+        {title}
+    </p>
+    <Badge text={status} noAnchor={true} />
+</a>

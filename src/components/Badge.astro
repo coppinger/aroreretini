@@ -3,20 +3,49 @@ import className from "classnames";
 
 import Icon from "./Icon.astro";
 
-const { href, text, color, iconName, leading, trailing, iconSize } =
+const { href, text, leading, trailing, iconSize, noAnchor, extraClasses } =
     Astro.props;
+let { color, iconName } = Astro.props;
+
+if (text === "Dead") {
+    color = "red";
+    iconName = "skull";
+} else if (text === "Paused") {
+    color = "blue";
+    iconName = "pause";
+} else if (text === "Active") {
+    color = "green";
+    iconName = "active";
+}
 
 const textColor = `text-${color}-950`;
 const badgeColor = `bg-${color}-300`;
 ---
 
-<a
-    href=""
-    class={className(
-        "flex justify-center items-center w-fit gap-2 box-border py-1.5 px-3 text-sm capitalize",
-        badgeColor,
-        textColor
-    )}
-    ><Icon color={color} iconName={iconName} iconSize="16px" />
-    {text}
-</a>
+{
+    noAnchor ? (
+        <div
+            class={className(
+                "inline-flex justify-center items-center w-fit gap-2 box-border py-1.5 px-3 text-sm capitalize leading-none h-8",
+                badgeColor,
+                textColor,
+                extraClasses
+            )}
+        >
+            <Icon color={color} iconName={iconName} iconSize="16px" />
+            {text}
+        </div>
+    ) : (
+        <a
+            href=""
+            class={className(
+                "inline-flex justify-center items-center w-fit gap-2 box-border py-1.5 px-3 text-sm capitalize leading-none h-8",
+                badgeColor,
+                textColor
+            )}
+        >
+            <Icon color={color} iconName={iconName} iconSize="16px" />
+            {text}
+        </a>
+    )
+}
