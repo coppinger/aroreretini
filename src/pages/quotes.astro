@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Quote from "../components/Quote.astro";
+
+const dummyQuotes = [
+    {
+        quote: "Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
+        author: "Marcus Aurelius",
+        comment: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        date: "May 8th 2023",
+    },
+    {
+        quote: "I can think. I can wait. I can fast.",
+        author: "Herman Hesse, Siddhartha",
+        comment:
+            "Esse ratione itaque laborum, sint ut est distinctio incidunt.",
+        date: "May 7th 2023",
+    },
+];
+---
+
+<BaseLayout>
+    <main slot="main">
+        <div class="flex flex-col gap-8 max-w-lg">
+            <h1 class="text-4xl text-white">Quotes</h1>
+            {
+                dummyQuotes.map(({ quote, author, comment, date }) => {
+                    return (
+                        <Quote
+                            quote={quote}
+                            author={author}
+                            comment={comment}
+                            date={date}
+                        />
+                    );
+                })
+            }
+        </div>
+    </main>
+</BaseLayout>

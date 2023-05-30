@@ -11,12 +11,13 @@ import EssayList from "../components/EssayList.astro";
 import ProjectsListItem from "../components/ProjectsListItem.astro";
 import NavSubTitle from "../components/layout/side-menu/NavSubTitle.astro";
 import IndexSidebar from "../components/IndexSidebar.astro";
+import Logo from "../components/layout/side-menu/Logo.astro";
 
 const dummyBlogData = [
     ["#", "2nd May", "How & why I made this site", false],
-    ["#", "1st May", "Things that have changed my life", false],
-    ["#", "2nd May", "The Bounty of the Sand Dollars", true],
-    ["#", "1st May", "Placeholder title, innit", true],
+    ["#", "1st May", "Things that have changed my life", true],
+    ["#", "2nd May", "The Bounty of the Sand Dollars", false],
+    ["#", "1st May", "Placeholder title, innit", false],
     ["#", "1st May", "Lorem ipsum dolor sit amet", false],
     ["#", "23nd Apr", "Hello, World", false],
 ];
@@ -28,177 +29,161 @@ const dummyProjectsData = [
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <BaseLayout>
-            <main slot="main">
-                <div class="flex gap-8">
-                    <div class="flex flex-col gap-8 max-w-lg">
-                        <div
-                            class="bg-slate-900 p-8 flex flex-col gap-6 order-1"
-                        >
-                            <div class="w-full flex items-center gap-4">
-                                <h2 class="inline-block shrink-0">
-                                    10 Seconds
-                                </h2>
-                                <hr />
-                            </div>
-                            <p>Kia ora, my name is</p>
-                            <svg
-                                width="181"
-                                height="52"
-                                viewBox="0 0 181 52"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M18.9286 5.60594C20.4289 3.52826 18.0891 1.41995 15.983 1.12894C9.15544 0.185529 3.61452 9.27488 2.16263 14.7145C0.116725 22.3797 0.132348 33.8472 7.53729 38.813C14.0139 43.1563 21.7202 37.4069 25.0019 31.6866"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M26.3893 1C28.507 1 28.7875 21.3558 28.7875 23.0081C28.7875 27.6158 28.1221 32.803 28.8857 37.3665C29.1485 38.9367 29.2215 37.455 29.2609 36.7595C29.3386 35.3854 29.9493 21.2026 33.1409 23.4413C35.0868 24.8063 35.9047 28.2932 36.4153 30.434C36.5941 31.1837 36.7242 37.1063 37.3462 37.2854"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M44.8336 29.0656C45.1255 28.1606 45.7394 27.0717 44.6142 26.6991C42.3899 25.9627 40.9737 28.8014 40.4753 30.5107C39.8415 32.6844 39.525 38.2021 42.8617 38.5458C45.5201 38.8196 47.8419 34.8793 48.0595 32.5659C48.1011 32.1241 47.3964 26.426 46.2566 27.2629C45.2296 28.0168 46.8895 34.1371 47.2996 35.0723C48.1648 37.0456 50.7115 37.9585 52.0326 35.8517C53.1328 34.0972 53.0073 27.6471 52.5116 29.6577C52.0373 31.5812 53.4648 35.3312 53.9841 37.2774C54.6085 39.6179 53.0009 32.5334 52.5282 30.1577C52.0252 27.6297 53.1027 29.7399 53.9612 30.6014C55.8166 32.4631 56.9195 29.5658 57.2356 28.1363C57.8916 25.1697 57.539 22.0151 57.1858 19.0396C57.0022 17.4926 56.1639 12.1235 57.3183 16.4396C58.8439 22.1434 58.8371 28.2005 59.3673 34.0445C59.556 36.1231 61.2333 39.1352 61.9946 35.3133"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M65.6013 33.0724C65.6013 34.6666 65.7356 39.2012 66.4547 37.7784"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M66.355 27.0936C66.0809 27.0888 64.915 26.9591 65.0406 26.9591"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M73.5433 32.8483C73.6557 35.9213 78.8237 31.0698 74.9497 30.4694C72.3072 30.0599 71.8568 36.4547 72.4421 38.0523C73.7099 41.5122 78.2952 39.6278 79.4173 37.2137"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M116.823 8.62958C117.571 6.14625 116.006 4.75686 113.463 4.89069C107.273 5.21641 105.24 16.4306 104.882 20.9194C104.404 26.9383 104.64 33.5809 110.982 36.4203C115.072 38.2512 119.336 36.5887 121.221 32.8228"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M132.607 30.3159C132.813 30.0039 132.671 28.9283 132.492 28.6157C131.762 27.3416 132.53 31.566 132.792 33.011C133.458 36.6904 134.236 40.3684 134.5 44.1042C134.539 44.6578 133.825 41.2773 133.822 40.4778C133.812 37.5313 133.793 34.6172 133.593 31.6759C133.502 30.34 133.402 25.2392 136.082 27.9275C138.331 30.182 136.789 34.4631 133.423 34.4631M128.646 29.4268C122.549 25.9035 122.646 31.5204 123.555 33.7908C125.783 39.3574 132.763 34.2576 128.646 29.4268Z"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M139.235 28.6456C139.001 24.5409 140.524 36.78 140.768 40.8842C140.874 42.6575 141.087 44.9485 140.691 41.7786C140.273 38.4246 139.889 35.0111 139.889 31.6286C139.889 27.6553 143.247 26.9129 143.857 31.0434C144.214 33.4631 141.032 36.8867 140.219 33.5399"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M148.585 29.4972C149.718 29.4972 148.42 33.7198 149.145 32.8497"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M147.7 25.6249C147.7 24.9204 147.307 24.0796 148.192 24.2086"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M153.182 28.4843C153.351 30.2205 153.998 31.8919 153.998 33.6604C153.998 35.3092 153.538 30.2765 154.065 28.7144C154.75 26.6868 156.264 26.1139 157.081 28.4539C157.587 29.9068 157.649 31.5436 157.807 33.0633C157.821 33.2006 158.013 35.1732 158.296 34.9561"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M163.317 28.9056C163.297 28.1948 162.562 27.1657 161.857 27.0222C159.544 26.5512 159.896 30.9044 159.911 32.2197C159.929 33.7985 161.678 36.467 162.917 34.0966C163.815 32.3787 163.732 30.4369 163.777 28.561C163.825 26.6008 164.795 32.3507 165.189 34.2714C166.159 38.9992 167.04 43.79 167.239 48.6229C167.369 51.7647 166.363 51.6108 164.524 49.2235C162.122 46.1052 159.363 42.603 158.464 38.703"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path
-                                    d="M167.322 29.5331C167.412 32.0018 174.412 27.3081 169.864 26.4505C166.968 25.9043 165.394 30.3026 166.529 32.5349C167.82 35.0743 172.064 35.1506 173.405 32.6848C174.287 31.0641 174.003 25.483 174.502 27.2593C175.228 29.8418 174.868 32.6942 175.462 35.3147C175.482 35.4038 175.526 30.1263 175.526 28.5879C175.526 25.9437 178.754 25.0692 179.923 27.4983"
-                                    stroke="white"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
+<BaseLayout>
+    <main slot="main">
+        <div class="flex gap-8">
+            <div class="flex flex-col gap-8 max-w-lg">
+                <div class="dark-card order-1">
+                    <div class="w-full flex items-center gap-4">
+                        <h2 class="inline-block shrink-0">10 Seconds</h2>
+                        <hr />
+                    </div>
+                    <p>Kia ora, my name is</p>
+                    <svg
+                        width="181"
+                        height="52"
+                        viewBox="0 0 181 52"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M18.9286 5.60594C20.4289 3.52826 18.0891 1.41995 15.983 1.12894C9.15544 0.185529 3.61452 9.27488 2.16263 14.7145C0.116725 22.3797 0.132348 33.8472 7.53729 38.813C14.0139 43.1563 21.7202 37.4069 25.0019 31.6866"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M26.3893 1C28.507 1 28.7875 21.3558 28.7875 23.0081C28.7875 27.6158 28.1221 32.803 28.8857 37.3665C29.1485 38.9367 29.2215 37.455 29.2609 36.7595C29.3386 35.3854 29.9493 21.2026 33.1409 23.4413C35.0868 24.8063 35.9047 28.2932 36.4153 30.434C36.5941 31.1837 36.7242 37.1063 37.3462 37.2854"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M44.8336 29.0656C45.1255 28.1606 45.7394 27.0717 44.6142 26.6991C42.3899 25.9627 40.9737 28.8014 40.4753 30.5107C39.8415 32.6844 39.525 38.2021 42.8617 38.5458C45.5201 38.8196 47.8419 34.8793 48.0595 32.5659C48.1011 32.1241 47.3964 26.426 46.2566 27.2629C45.2296 28.0168 46.8895 34.1371 47.2996 35.0723C48.1648 37.0456 50.7115 37.9585 52.0326 35.8517C53.1328 34.0972 53.0073 27.6471 52.5116 29.6577C52.0373 31.5812 53.4648 35.3312 53.9841 37.2774C54.6085 39.6179 53.0009 32.5334 52.5282 30.1577C52.0252 27.6297 53.1027 29.7399 53.9612 30.6014C55.8166 32.4631 56.9195 29.5658 57.2356 28.1363C57.8916 25.1697 57.539 22.0151 57.1858 19.0396C57.0022 17.4926 56.1639 12.1235 57.3183 16.4396C58.8439 22.1434 58.8371 28.2005 59.3673 34.0445C59.556 36.1231 61.2333 39.1352 61.9946 35.3133"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M65.6013 33.0724C65.6013 34.6666 65.7356 39.2012 66.4547 37.7784"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M66.355 27.0936C66.0809 27.0888 64.915 26.9591 65.0406 26.9591"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M73.5433 32.8483C73.6557 35.9213 78.8237 31.0698 74.9497 30.4694C72.3072 30.0599 71.8568 36.4547 72.4421 38.0523C73.7099 41.5122 78.2952 39.6278 79.4173 37.2137"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M116.823 8.62958C117.571 6.14625 116.006 4.75686 113.463 4.89069C107.273 5.21641 105.24 16.4306 104.882 20.9194C104.404 26.9383 104.64 33.5809 110.982 36.4203C115.072 38.2512 119.336 36.5887 121.221 32.8228"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M132.607 30.3159C132.813 30.0039 132.671 28.9283 132.492 28.6157C131.762 27.3416 132.53 31.566 132.792 33.011C133.458 36.6904 134.236 40.3684 134.5 44.1042C134.539 44.6578 133.825 41.2773 133.822 40.4778C133.812 37.5313 133.793 34.6172 133.593 31.6759C133.502 30.34 133.402 25.2392 136.082 27.9275C138.331 30.182 136.789 34.4631 133.423 34.4631M128.646 29.4268C122.549 25.9035 122.646 31.5204 123.555 33.7908C125.783 39.3574 132.763 34.2576 128.646 29.4268Z"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M139.235 28.6456C139.001 24.5409 140.524 36.78 140.768 40.8842C140.874 42.6575 141.087 44.9485 140.691 41.7786C140.273 38.4246 139.889 35.0111 139.889 31.6286C139.889 27.6553 143.247 26.9129 143.857 31.0434C144.214 33.4631 141.032 36.8867 140.219 33.5399"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M148.585 29.4972C149.718 29.4972 148.42 33.7198 149.145 32.8497"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M147.7 25.6249C147.7 24.9204 147.307 24.0796 148.192 24.2086"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M153.182 28.4843C153.351 30.2205 153.998 31.8919 153.998 33.6604C153.998 35.3092 153.538 30.2765 154.065 28.7144C154.75 26.6868 156.264 26.1139 157.081 28.4539C157.587 29.9068 157.649 31.5436 157.807 33.0633C157.821 33.2006 158.013 35.1732 158.296 34.9561"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M163.317 28.9056C163.297 28.1948 162.562 27.1657 161.857 27.0222C159.544 26.5512 159.896 30.9044 159.911 32.2197C159.929 33.7985 161.678 36.467 162.917 34.0966C163.815 32.3787 163.732 30.4369 163.777 28.561C163.825 26.6008 164.795 32.3507 165.189 34.2714C166.159 38.9992 167.04 43.79 167.239 48.6229C167.369 51.7647 166.363 51.6108 164.524 49.2235C162.122 46.1052 159.363 42.603 158.464 38.703"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M167.322 29.5331C167.412 32.0018 174.412 27.3081 169.864 26.4505C166.968 25.9043 165.394 30.3026 166.529 32.5349C167.82 35.0743 172.064 35.1506 173.405 32.6848C174.287 31.0641 174.003 25.483 174.502 27.2593C175.228 29.8418 174.868 32.6942 175.462 35.3147C175.482 35.4038 175.526 30.1263 175.526 28.5879C175.526 25.9437 178.754 25.0692 179.923 27.4983"
+                            stroke="white"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
 
-                            <p>
-                                I live in Wellington, Aotearoa (New Zealand),
-                                where I’ve resided for the last 10 years. I’m
-                                originally from Shrewsbury, England.
-                            </p>
-                            <p>
-                                I'm a serial founder and a jack of all trades:
-                                UI/UX design, marketing, front-end, product.
-                            </p>
-                            <p>
-                                I’m currently working on <a
-                                    class="anchor"
-                                    href="#">Bookstop</a
-                                >, <a class="anchor" href="#">Pokemon Clone</a> and
-                                <a class="anchor" href="#">Everquest 4</a>.
-                            </p>
-                            <p>
-                                I was diagnosed with ADD (ADHD-I) as a young
-                                adult, and, for what it’s worth, my Myers-Briggs
-                                personality type is ENFP.
-                            </p>
-                            <Button
-                                style="naked"
-                                text="ABOUT →"
-                                href="#"
-                                extraClasses="self-end"
-                            />
-                        </div>
-                        <EssayList dummyBlogData={dummyBlogData} />
-                        <div
-                            class="flex flex-col gap-8 border-2 border-slate-700 p-8 order-4"
-                        >
-                            <h3>Projects</h3>
-                            {
-                                dummyProjectsData.map(
-                                    ([href, date, title, status]) => {
-                                        return (
-                                            <ProjectsListItem
-                                                href={href}
-                                                title={title}
-                                                date={date}
-                                                status={status}
-                                            />
-                                        );
-                                    }
-                                )
-                            }
-                        </div>
-                        <div class="lg:hidden order-2 mb-8">
-                            <IndexSidebar />
-                        </div>
-                    </div>
-                    <div class="hidden lg:flex">
-                        <IndexSidebar />
-                    </div>
+                    <p>
+                        I live in Wellington, Aotearoa (New Zealand), where I’ve
+                        resided for the last 10 years. I’m originally from
+                        Shrewsbury, England.
+                    </p>
+                    <p>
+                        I'm a serial founder and a jack of all trades: UI/UX
+                        design, marketing, front-end, product.
+                    </p>
+                    <p>
+                        I’m currently working on <a class="anchor" href="#"
+                            >Bookstop</a
+                        >, <a class="anchor" href="#">Pokemon Clone</a> and
+                        <a class="anchor" href="#">Everquest 4</a>.
+                    </p>
+                    <p>
+                        I was diagnosed with ADD (ADHD-I) as a young adult, and,
+                        for what it’s worth, my Myers-Briggs personality type is
+                        ENFP.
+                    </p>
+                    <Button
+                        style="naked"
+                        text="ABOUT →"
+                        href="#"
+                        extraClasses="self-end"
+                    />
                 </div>
-            </main>
-            <Footer />
-        </BaseLayout>
-    </body>
-</html>
+                <EssayList dummyBlogData={dummyBlogData} />
+                <div
+                    class="flex flex-col gap-8 border-2 border-slate-700 p-8 order-4"
+                >
+                    <h3>Projects</h3>
+                    {
+                        dummyProjectsData.map(([href, date, title, status]) => {
+                            return (
+                                <ProjectsListItem
+                                    href={href}
+                                    title={title}
+                                    date={date}
+                                    status={status}
+                                />
+                            );
+                        })
+                    }
+                </div>
+                <div class="lg:hidden order-2 mb-8">
+                    <IndexSidebar />
+                </div>
+            </div>
+            <div class="hidden lg:flex">
+                <IndexSidebar />
+            </div>
+        </div>
+    </main>
+</BaseLayout>
