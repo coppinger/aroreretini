@@ -1,4 +1,6 @@
 ---
+import classNames from "classnames";
+
 import Breadcrumb from "./Breadcrumb.astro";
 import Logo from "../components/layout/side-menu/Logo.astro";
 
@@ -11,7 +13,10 @@ const urls = pathname.split("/");
         <Logo />
     </div>
     <div
-        class="md:h-14 flex flex-col items-start sm:flex-row sm:gap-2 sm:items-center"
+        class={classNames(
+            "md:h-14 flex items-start ",
+            urls[1] ? "gap-1" : " flex-col sm:flex-row sm:gap-2 sm:items-center"
+        )}
     >
         {
             pathname == "/" ? (
