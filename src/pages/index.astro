@@ -33,7 +33,7 @@ const dummyProjectsData = [
     <main slot="main">
         <div class="flex gap-8">
             <div class="flex flex-col gap-8 max-w-lg">
-                <div class="dark-card order-1">
+                <div class="card-dark order-1">
                     <div class="w-full flex items-center gap-4">
                         <h2 class="inline-block shrink-0">10 Seconds</h2>
                         <hr />
@@ -160,9 +160,7 @@ const dummyProjectsData = [
                     />
                 </div>
                 <EssayList dummyBlogData={dummyBlogData} />
-                <div
-                    class="flex flex-col gap-8 border-2 border-slate-700 p-8 order-4"
-                >
+                <div class="flex flex-col gap-8 card-outline order-4">
                     <h3>Projects</h3>
                     {
                         dummyProjectsData.map(([href, date, title, status]) => {

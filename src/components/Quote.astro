@@ -4,15 +4,21 @@ const { quote, author, comment, date } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-2 dark-card">
+    <div class="flex flex-col gap-2 card-dark">
         <p>{quote}</p>
         <p class="text-slate-400">— {author}</p>
     </div>
     <div class="flex flex-col gap-2 items-end text-right">
-        <p class="text-sm">{comment}</p>
-        <div class="flex gap-2 items-center">
-            <Icon iconName="calendar" iconSize="16px" />
-            <p class="text-sm text-slate-400">{date}</p>
-        </div>
+        {comment ? <p class="text-sm">{comment}</p> : ""}
+        {
+            date ? (
+                <div class="flex gap-2 items-center">
+                    <Icon iconName="calendar" color="slate" iconSize="16px" />
+                    <p class="text-sm text-slate-400">{date}</p>
+                </div>
+            ) : (
+                ""
+            )
+        }
     </div>
 </div>

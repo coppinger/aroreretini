@@ -1,18 +1,39 @@
 ---
 const { pathname } = Astro.url;
 const urls = pathname.split("/");
+let path = "";
+
+urls.shift();
+
+// to do: create function for figuring out URLs here then call it down below
+
+function getHref(url) {
+    path += `/${url}`;
+    return path;
+}
+
+/*
+dyrenh: const breadcrumbs = getBreadcrumbs(pathname)
+dyrenh: and just do all the work in getBreadcrumbs
+dyrenh: then your rendering is just breadcrumbs.map(crumb => <a href={crumb.url}>{crumb.text}</a>)
+*/
 ---
 
 <>
-    <a href="/" class="text-slate-400"> Index</a>
+    <a class="capitalize text-slate-400" href="/">Index</a>
     <span class="text-slate-700"> /</span>
-    <!-- Child -->
-    <a class="capitalize text-slate-400" href=`/${urls[1]}`>
-        {urls[1]}
-    </a>
-    <!-- Grandchild -->
-    {urls[2] ? <span class="text-slate-700"> / </span> : ""}
-    <a class="capitalize text-slate-400" href={urls[2]}>
-        {urls[2]}
-    </a>
+    {
+        urls.map((url, index) => {
+            return (
+                <>
+                    <a class="capitalize text-slate-400" href={getHref(url)}>
+                        {url.split("-").join(" ")}
+                    </a>
+                    {index < urls.length - 1 && (
+                        <span class="text-slate-700"> /</span>
+                    )}
+                </>
+            );
+        })
+    }
 </>

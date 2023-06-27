@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Icon from "../components/Icon.astro";
+---
+
+<BaseLayout>
+    <main slot="main">
+        <div class="flex flex-col gap-8 max-w-lg">
+            <div class="card-dark">
+                <h3>Contact</h3>
+                <p>
+                    I love connecting with people; please feel free to reach out
+                    at any time if you have a question, suggestion or anything
+                    else.
+                    <br />
+                    <br />
+                    The most reliable method of reaching me is probably via email.
+                </p>
+            </div>
+            <div class="card-outline">
+                <ul class="flex flex-col gap-8 mb-8">
+                    <li class="flex gap-4 items-center">
+                        <div class="flex gap-2 items-center justify-center">
+                            <Icon iconName="email" iconSize="16px" />
+                            <p class="text-slate-400">Email</p>
+                        </div>
+                        <hr />
+                        <p>charles.coppinger@gmail.com</p>
+                        <hr />
+                        <a href="#" class="text-slate-400 underline anchor"
+                            >copy</a
+                        >
+                    </li>
+                    <li class="flex gap-4 items-center">
+                        <div class="flex gap-2 items-center justify-center">
+                            <Icon iconName="twitter" iconSize="16px" />
+                            <p class="text-slate-400">Twitter</p>
+                        </div>
+                        <hr />
+                        <a
+                            href="https://twitter.com/thecoppinger"
+                            target="_blank"
+                            class="underline anchor">TheCoppinger</a
+                        >
+                    </li>
+                    <li class="flex gap-4 items-center">
+                        <div class="flex gap-2 items-center justify-center">
+                            <Icon iconName="discord" iconSize="16px" />
+                            <p class="text-slate-400">Discord</p>
+                        </div>
+                        <hr />
+                        <a
+                            href="https://discordapp.com/users/thecoppinger"
+                            target="_blank"
+                            class="underline anchor">TheCoppinger</a
+                        >
+
+                        <a href="#" class="text-slate-400 underline anchor"
+                            >copy</a
+                        >
+                    </li>
+                </ul>
+                <form
+                    action="https://api.sheetmonkey.io/form/6UAgBGeF4DAqc7v8NCxbsK"
+                    method="post"
+                    class="flex flex-col gap-8"
+                >
+                    <label
+                        >Subject:<input
+                            type="text"
+                            name="subject"
+                            id=""
+                            required
+                        /></label
+                    >
+                    <label
+                        >Message:
+                        <textarea
+                            name="message"
+                            id=""
+                            cols="30"
+                            rows="10"
+                            required></textarea></label
+                    >
+                    <label
+                        >Your Email:
+                        <input type="email" name="email" id="" required />
+                    </label>
+                    <input
+                        type="hidden"
+                        name="Created"
+                        value="x-sheetmonkey-current-date-time"
+                    />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </main>
+</BaseLayout>

@@ -10,7 +10,11 @@ const fillColor = `fill-${color}-950`;
 <svg
     viewBox="0 0 24 24"
     style={{ width: iconSize, height: iconSize }}
-    class={color ? classNames(fillColor) : classNames("fill-white")}
+    class={color === "slate"
+        ? classNames("fill-slate-400")
+        : color
+        ? classNames(fillColor)
+        : classNames("fill-white")}
     xmlns="http://www.w3.org/2000/svg"
 >
     <path d={iconList[iconName] || iconList.empty}></path>

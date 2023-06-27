@@ -30,6 +30,10 @@ module.exports = {
         "bg-orange-300",
         "fill-orange-950",
         "text-orange-950",
+        "bg-slate-300",
+        "fill-slate-950",
+        "text-slate-950",
+        "fill-slate-400",
     ],
     theme: {
         extend: {

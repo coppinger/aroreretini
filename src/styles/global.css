@@ -52,6 +52,23 @@ hr {
     @apply opacity-80 transition-all ease-in-out underline-offset-2;
 }
 
-.dark-card {
+.card-dark {
     @apply bg-slate-900 p-8 flex flex-col gap-6;
+}
+
+.card-outline {
+    @apply border-2 border-slate-700 p-8;
+}
+
+label {
+    @apply flex flex-col gap-2;
+}
+
+input,
+textarea {
+    @apply border-2 bg-transparent border-slate-400 px-3 py-3 text-base text-slate-500 hover:border-slate-300 focus:border-white transition-all duration-300;
+}
+
+input[type="submit"] {
+    @apply text-xs tracking-widest bg-white border-0 text-black w-fit px-6 py-4 uppercase font-bold cursor-pointer self-end hover:bg-slate-300 transition-all duration-300;
 }
