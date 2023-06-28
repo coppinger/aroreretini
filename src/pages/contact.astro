@@ -5,7 +5,7 @@ import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout>
-    <main slot="main">
+    <main slot="main" class="flex gap-8">
         <div class="flex flex-col gap-8 max-w-lg">
             <div class="card-dark">
                 <h3>Contact</h3>
@@ -94,6 +94,48 @@ import Icon from "../components/Icon.astro";
                     />
                     <input type="submit" value="Submit" />
                 </form>
+            </div>
+        </div>
+        <div class="relative hidden lg:block">
+            <svg
+                width="109"
+                height="372"
+                viewBox="0 0 109 372"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M30.9598 1C42.5632 15.37 80.599 31.0776 70.407 130.475C70.4403 147.33 49.3283 177.53 34.6229 189.891C26.6608 196.584 13.4679 204.149 5.84889 193.339C-0.977335 183.653 0.174038 169.85 4.56223 159.691C10.1638 146.724 25.7678 136.548 41.7555 132.864C58.8773 128.919 79.4513 128.694 94.3876 137.284C110.011 146.269 110.015 162.22 105.112 175.902C101.639 185.594 96.0146 194.598 90.8124 203.734C85.7358 212.649 81.1927 221.738 75.3735 230.374C66.3414 243.779 55.0567 255.799 47.6653 269.939C34.6229 287 10.5 327 77 370.5"
+                    stroke="#94A3B8"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="16 16 16 16"></path>
+            </svg>
+            <div class="absolute -right-10">
+                <svg
+                    width="69"
+                    height="69"
+                    viewBox="0 0 69 69"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g clip-path="url(#clip0_61_704)">
+                        <path
+                            d="M62.4698 59.2979L28.9993 4.57541L22.2061 19.5521L7.57335 25.4723L16.9183 31.2088L9.44095 47.697L62.4698 59.2979ZM57.8287 55.473L25.8329 21.0725L29.5164 12.9493L57.8287 55.473ZM57.4295 56.0766L15.0203 44.9081L20.2948 33.2819L57.4295 56.0766Z"
+                            fill="#CBD5E1"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_61_704">
+                            <rect
+                                width="64"
+                                height="64"
+                                fill="white"
+                                transform="translate(63.8021) rotate(85.4926)"
+                            ></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
             </div>
         </div>
     </main>
