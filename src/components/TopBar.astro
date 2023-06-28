@@ -14,8 +14,10 @@ const urls = pathname.split("/");
     </div>
     <div
         class={classNames(
-            "md:h-14 flex items-start ",
-            urls[1] ? "gap-1" : " flex-col sm:flex-row sm:gap-2 sm:items-center"
+            "md:h-14 flex items-start",
+            urls[1]
+                ? "gap-1 items-center"
+                : " flex-col sm:flex-row sm:gap-2 sm:items-center"
         )}
     >
         {
