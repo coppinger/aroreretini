@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+    <main slot="main">
+        <div class="flex gap-8">
+            <div class="flex flex-col gap-8 max-w-lg">
+                <slot name="content">
+                    <h1>{frontmatter.title}</h1>
+                </slot>
+                <slot />
+            </div>
+            <div class="hidden lg:flex">
+                <slot name="sidebar">
+                    <p>Sidebar</p>
+                </slot>
+            </div>
+        </div>
+    </main>
+</BaseLayout>

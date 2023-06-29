@@ -1,0 +1,58 @@
+---
+import ProjectsPageItem from "../../components/ProjectsPageItem.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import cover from "../../images/project-cover-example.png";
+
+let exampleProjectData = [
+    {
+        name: "Bookstop",
+        date: "May 2023",
+        description:
+            "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
+        status: "Active",
+        cover: cover,
+        href: "#",
+    },
+    {
+        name: "Bookstop",
+        date: "May 2023",
+        description:
+            "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
+        status: "Active",
+        cover: cover,
+        href: "#",
+    },
+];
+---
+
+<BaseLayout>
+    <main slot="main">
+        <div class="flex flex-col gap-8 max-w-lg">
+            <div class="flex flex-col gap-2">
+                <h1 class="text-4xl text-white">Projects</h1>
+                <p>A portfolio of small bets.</p>
+            </div>
+            <div
+                class="border-l-2 border-dashed border-slate-700 flex flex-col gap-8 py-6"
+            >
+                {
+                    exampleProjectData.map(
+                        ({ name, date, description, status, href }) => {
+                            return (
+                                <ProjectsPageItem
+                                    name={name}
+                                    date={date}
+                                    description={description}
+                                    status={status}
+                                    cover={cover}
+                                    href={href}
+                                />
+                            );
+                        }
+                    )
+                }
+            </div>
+        </div>
+    </main>
+</BaseLayout>
