@@ -21,9 +21,10 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
+        name: "project",
+        label: "Projects",
         path: "src/content/projects",
+        format: "mdx",
         fields: [
           {
             type: "string",
@@ -33,10 +34,46 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "date",
+            label: "Date",
+            isTitle: false,
+            required: true,
+          },
+          {
             type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
+            name: "description",
+            label: "Description",
+            isTitle: false,
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "team",
+            label: "Team",
+            isTitle: false,
+            required: false,
+          },
+          {
+            type: "rich-text",
+            name: "tools_and_technology",
+            label: "Tools & Technology",
+            isTitle: false,
+            required: false,
+          },
+          {
+            type: "rich-text",
+            name: "business_model",
+            label: "Business Model",
+            isTitle: false,
+            required: false,
+          },
+          {
+            type: "rich-text",
+            name: "timeline",
+            label: "Timeline",
+            isTitle: false,
+            required: false,
           },
         ],
       },

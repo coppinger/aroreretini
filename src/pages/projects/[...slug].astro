@@ -1,8 +1,11 @@
 ---
 import slugify from "slugify";
 
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import H4 from "../../components/H4.astro";
+
 export async function getStaticPaths() {
-    const posts = await Astro.glob("../../content/projects/*.md");
+    const posts = await Astro.glob("../../content/projects/*.mdx");
 
     return posts.map((post) => ({
         params: { slug: slugify(post.frontmatter.title).toLowerCase() },
@@ -12,11 +15,28 @@ export async function getStaticPaths() {
 
 const { Content, frontmatter } = Astro.props.post;
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
+let contentArr = Object.entries(frontmatter);
+contentArr.shift();
 ---
 
 <BaseLayout>
     <main slot="main">
-        <Content />
+        <div class="flex flex-col gap-4">
+            <a href="/projects"><-- back to projects</a>
+            <h1>{frontmatter.title}</h1>
+            <p>Started {frontmatter.date}</p>
+            <div class="flex flex-col gap-8">
+                {
+                    contentArr.map((item) => {
+                        return (
+                            <>
+                                <H4 text={item[0]} />
+                                <p>{item[1]}</p>
+                            </>
+                        );
+                    })
+                }
+            </div>
+        </div>
     </main>
 </BaseLayout>
