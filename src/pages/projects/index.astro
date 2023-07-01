@@ -2,8 +2,6 @@
 import ProjectsPageItem from "../../components/ProjectsPageItem.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-import cover from "../../images/project-cover-example.png";
-
 let exampleProjectData = [
     {
         name: "Bookstop",
@@ -11,7 +9,6 @@ let exampleProjectData = [
         description:
             "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
         status: "Active",
-        cover: cover,
         href: "#",
     },
     {
@@ -20,10 +17,13 @@ let exampleProjectData = [
         description:
             "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
         status: "Active",
-        cover: cover,
         href: "#",
     },
 ];
+
+const projects = await Astro.glob("../../content/projects/*.mdx");
+
+// console.log(projects[0].frontmatter[cover]);
 ---
 
 <BaseLayout>
@@ -37,20 +37,17 @@ let exampleProjectData = [
                 class="border-l-2 border-dashed border-slate-700 flex flex-col gap-8 py-6"
             >
                 {
-                    exampleProjectData.map(
-                        ({ name, date, description, status, href }) => {
-                            return (
-                                <ProjectsPageItem
-                                    name={name}
-                                    date={date}
-                                    description={description}
-                                    status={status}
-                                    cover={cover}
-                                    href={href}
-                                />
-                            );
-                        }
-                    )
+                    projects.map(({ frontmatter }) => {
+                        return (
+                            <ProjectsPageItem
+                                title={frontmatter.title}
+                                date={frontmatter.date}
+                                description={frontmatter.description}
+                                status={frontmatter.status}
+                                cover={frontmatter.cover}
+                            />
+                        );
+                    })
                 }
             </div>
         </div>

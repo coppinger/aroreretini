@@ -1,14 +1,15 @@
 ---
-const { name, description, date, status, cover, href } = Astro.props;
+const { title, description, date, status, cover } = Astro.props;
 import { Image } from "@astrojs/image/components";
 import Badge from "./Badge.astro";
 import Button from "./Button.astro";
+import slugify from "slugify";
 ---
 
-<a class="flex flex-col" href={href}>
+<a class="flex flex-col" href={`projects/${slugify(title).toLowerCase()}`}>
     <div class="flex flex-col border-2 border-l-0 border-slate-700">
         <div class="relative">
-            <Image src={cover} />
+            <Image src={cover} width="full" aspectRatio={2} />
             <Badge
                 text={status}
                 noAnchor={true}
@@ -17,7 +18,7 @@ import Button from "./Button.astro";
         </div>
         <div class="flex flex-col gap-2 p-6">
             <p>{date}</p>
-            <h2>{name}</h2>
+            <h2>{title}</h2>
             <p class="mb-4">{description}</p>
             <p
                 class="inline-block w-fit text-xs uppercase tracking-widest font-bold px-6 py-4 hover:translate-x-1 transition-all ease-out duration-300 self-end text-slate-400"
