@@ -2,25 +2,6 @@
 import ProjectsPageItem from "../../components/ProjectsPageItem.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-let exampleProjectData = [
-    {
-        name: "Bookstop",
-        date: "May 2023",
-        description:
-            "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
-        status: "Active",
-        href: "#",
-    },
-    {
-        name: "Bookstop",
-        date: "May 2023",
-        description:
-            "A novel app to help people create and stick to new routines to improve their health and lives—especially those with ADHD.",
-        status: "Active",
-        href: "#",
-    },
-];
-
 const projects = await Astro.glob("../../content/projects/*.mdx");
 ---
 
