@@ -1,8 +1,5 @@
 import { defineConfig } from "tinacms";
 
-// const tinaClientId = import.meta.env.PUBLIC_TINA_CLIENT_ID;
-// const tinaContent = import.meta.env.TINA_CONTENT;
-
 // Your hosting provider likely exposes this as an environment variable
 const branch =
     process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
@@ -48,6 +45,7 @@ export default defineConfig({
                                 },
                                 {
                                     type: "h2",
+
                                     depth: 2,
                                     children: [
                                         {
@@ -115,32 +113,32 @@ export default defineConfig({
                         label: "Body",
                         required: true,
                         isBody: true,
-                        templates: [
-                            {
-                                name: "TeamMember",
-                                label: "Team Member",
-                                fields: [
-                                    {
-                                        type: "string",
-                                        name: "team_member_name",
-                                        label: "Name",
-                                    },
-                                    {
-                                        type: "string",
-                                        name: "team_member_bio",
-                                        label: "Bio",
-                                        ui: {
-                                            component: "textarea",
-                                        },
-                                    },
-                                    {
-                                        type: "image",
-                                        name: "team_member_image",
-                                        label: "Image",
-                                    },
-                                ],
-                            },
-                        ],
+                        // templates: [
+                        //     {
+                        //         name: "TeamMember",
+                        //         label: "Team Member",
+                        //         fields: [
+                        //             {
+                        //                 type: "string",
+                        //                 name: "team_member_name",
+                        //                 label: "Name",
+                        //             },
+                        //             {
+                        //                 type: "string",
+                        //                 name: "team_member_bio",
+                        //                 label: "Bio",
+                        //                 ui: {
+                        //                     component: "textarea",
+                        //                 },
+                        //             },
+                        //             {
+                        //                 type: "image",
+                        //                 name: "team_member_image",
+                        //                 label: "Image",
+                        //             },
+                        //         ],
+                        //     },
+                        // ],
                     },
                 ],
             },

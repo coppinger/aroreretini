@@ -5,8 +5,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import H4 from "../../components/H4.astro";
 import Badge from "../../components/Badge.astro";
 
-import Markdown from "@astrojs/markdown-component";
-
 export async function getStaticPaths() {
     const posts = await Astro.glob("../../content/projects/*.mdx");
 
