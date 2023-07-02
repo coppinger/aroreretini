@@ -4,90 +4,142 @@ import { defineConfig } from "tinacms";
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
 export default defineConfig({
-  branch,
-  clientId: "d6af7304-9f73-4b32-8af7-3c4f8218a528", // Get this from tina.io
-  token: "02575ea2631bafc9b47f767a8a80af497750efeb", // Get this from tina.io
+    branch,
+    clientId: process.env.TINA_CLIENT_ID, // Get this from tina.io
+    token: process.env.TINA_CONTENT, // Get this from tina.io
 
-  build: {
-    outputFolder: "admin",
-    publicFolder: "public",
-  },
-  media: {
-    tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+    build: {
+        outputFolder: "admin",
+        publicFolder: "public",
     },
-  },
-  schema: {
-    collections: [
-      {
-        name: "project",
-        label: "Projects",
-        path: "src/content/projects",
-        format: "mdx",
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
+    media: {
+        tina: {
+            mediaRoot: "src/images",
+            publicFolder: "public",
+        },
+    },
+    schema: {
+        collections: [
+            {
+                name: "project",
+                label: "Projects",
+                path: "src/content/projects",
+                format: "mdx",
+                defaultItem: () => {
+                    return {
+                        title: "My New Post",
+                        // The body will be populated with "Default Text"
+                        body: {
+                            type: "root",
+                            children: [
+                                {
+                                    type: "h1",
+                                    depth: 1,
+                                    children: [
+                                        {
+                                            type: "text",
+                                            text: "Testing",
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: "h2",
+                                    depth: 2,
+                                    children: [
+                                        {
+                                            type: "text",
+                                            text: "Testing one two three",
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: "p",
+                                    children: [
+                                        {
+                                            type: "text",
+                                            text: "YYAAAAAAAHOOOOOOO",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    };
+                },
+                fields: [
                     {
-            type: "image",
-            name: "cover",
-            label: "Cover",
-            required: true,
-          },
-          {
-            type: "string",
-            name: "status",
-            label: "Status",
-            required: true,
-            ui: {
-              component: "select",
-              options: ['Paused', 'Active', 'Dead'],
-            }, 
-          },
-          {
-            type: "string",
-            name: "date",
-            label: "Date",
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "description",
-            label: "Description",
-            required: true,
-            isBody: true,
-          },
-          {
-            type: "rich-text",
-            name: "team",
-            label: "Team",
-            required: false,
-          },
-          {
-            type: "rich-text",
-            name: "tools_and_technology",
-            label: "Tools & Technology",
-            required: false,
-          },
-          {
-            type: "rich-text",
-            name: "business_model",
-            label: "Business Model",
-            required: false,
-          },
-          {
-            type: "rich-text",
-            name: "timeline",
-            label: "Timeline",
-            required: false,
-          },
+                        type: "string",
+                        name: "title",
+                        label: "Title",
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: "image",
+                        name: "cover",
+                        label: "Cover",
+                        required: true,
+                    },
+                    {
+                        type: "string",
+                        name: "status",
+                        label: "Status",
+                        required: true,
+                        ui: {
+                            component: "select",
+                            options: ["Paused", "Active", "Dead"],
+                        },
+                    },
+                    {
+                        type: "string",
+                        name: "date",
+                        label: "Date",
+                        required: true,
+                    },
+                    {
+                        type: "string",
+                        name: "description",
+                        label: "Description",
+                        required: true,
+                        isBody: false,
+                        ui: {
+                            component: "textarea",
+                        },
+                    },
+                    {
+                        type: "rich-text",
+                        name: "body",
+                        label: "Body",
+                        required: true,
+                        isBody: true,
+                        templates: [
+                            {
+                                name: "TeamMember",
+                                label: "Team Member",
+                                fields: [
+                                    {
+                                        type: "string",
+                                        name: "team_member_name",
+                                        label: "Name",
+                                    },
+                                    {
+                                        type: "string",
+                                        name: "team_member_bio",
+                                        label: "Bio",
+                                        ui: {
+                                            component: "textarea",
+                                        },
+                                    },
+                                    {
+                                        type: "image",
+                                        name: "team_member_image",
+                                        label: "Image",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 });

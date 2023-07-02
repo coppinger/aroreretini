@@ -5,6 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import H4 from "../../components/H4.astro";
 import Badge from "../../components/Badge.astro";
 
+import Markdown from "@astrojs/markdown-component";
+
 export async function getStaticPaths() {
     const posts = await Astro.glob("../../content/projects/*.mdx");
 
@@ -16,31 +18,33 @@ export async function getStaticPaths() {
 
 const { Content, frontmatter } = Astro.props.post;
 
-let contentArr = Object.entries(frontmatter);
-contentArr.shift();
-
-let projectStatus = contentArr.pop();
+let projectArr = Object.entries(frontmatter);
 ---
 
 <BaseLayout>
     <main slot="main">
-        <div class="flex flex-col gap-4">
-            <a href="/projects"><-- back to projects</a>
-            <h1>{frontmatter.title}</h1>
-            <p>Started {frontmatter.date}</p>
-            {frontmatter.status ? <Badge text={frontmatter.status} /> : ""}
-            <div class="flex flex-col gap-8">
-                {
-                    contentArr.map((item) => {
-                        return (
-                            <>
-                                <H4 text={item[0].split("_").join(" ")} />
-                                {item[1]}
-                            </>
-                        );
-                    })
-                }
-            </div>
+        <div class="flex gap-8">
+            <article class="flex flex-col gap-4 max-w-lg">
+                <a href="/projects"><-- back to projects</a>
+                <h1>{frontmatter.title}</h1>
+                <p>Started {frontmatter.date}</p>
+                <div class="flex flex-col gap-8">
+                    <!-- {
+                        projectArr
+                            .filter(([key]) => key[0] !== ".")
+                            .map(([key, value]) => {
+                                return (
+                                    <div>
+                                        <H4 text={key.split("_").join(" ")} />
+                                        <Markdown>{value}</Markdown>
+                                    </div>
+                                );
+                            })
+                    } -->
+                    <Content />
+                </div>
+            </article>
+            <p>Sidebar</p>
         </div>
     </main>
 </BaseLayout>

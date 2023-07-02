@@ -1,0 +1,9 @@
+---
+import { Image } from "@astrojs/image/components";
+const { team_member_name, team_member_bio, team_member_image } = Astro.props;
+---
+
+<Image src={team_member_image} width={200} aspectRatio="1:2" />
+<p>Test</p>
+<p>{team_member_name}</p>
+<p>{team_member_bio}</p>

@@ -76,3 +76,11 @@ textarea {
 input[type="submit"] {
     @apply text-xs tracking-widest bg-white border-0 text-black w-fit px-6 py-4 uppercase font-bold cursor-pointer self-end hover:bg-slate-300 transition-all duration-300;
 }
+
+article ul {
+    @apply list-disc list-inside;
+}
+
+article ul > ul {
+    @apply ml-4 list-none;
+}
