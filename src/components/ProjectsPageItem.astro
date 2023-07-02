@@ -10,7 +10,7 @@ import slugify from "slugify";
 <a class="flex flex-col" href={`projects/${slugify(title).toLowerCase()}`}>
     <div class="flex flex-col border-2 border-l-0 border-slate-700">
         <div class="relative">
-            <Image src={cover} width="full" aspectRatio={2} />
+            <Image src={cover} width={100} aspectRatio={2} />
             <Badge
                 text={status}
                 noAnchor={true}
