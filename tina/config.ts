@@ -1,7 +1,7 @@
 import { defineConfig } from "tinacms";
 
-const tinaClientId = import.meta.env.PUBLIC_TINA_CLIENT_ID;
-const tinaContent = import.meta.env.TINA_CONTENT;
+// const tinaClientId = import.meta.env.PUBLIC_TINA_CLIENT_ID;
+// const tinaContent = import.meta.env.TINA_CONTENT;
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -9,8 +9,8 @@ const branch =
 
 export default defineConfig({
     branch,
-    clientId: tinaClientId, // Get this from tina.io
-    token: tinaContent, // Get this from tina.io
+    clientId: process.env.TINA_CLIENT_ID, // Get this from tina.io
+    token: process.env.TINA_CONTENT, // Get this from tina.io
 
     build: {
         outputFolder: "admin",
