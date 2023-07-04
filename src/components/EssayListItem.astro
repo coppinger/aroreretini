@@ -1,10 +1,19 @@
 ---
-const { href, date, title, isFeatured } = Astro.props;
+import slugify from "slugify";
+import { slugOptions } from "@lib/slug";
+import { dateOptionsDayMonth } from "@lib/dateOptions";
+
+const { essay } = Astro.props;
 ---
 
-<a class="flex gap-6 w-fit" href={href}>
-    <p class="text-slate-400 w-16">{date}</p>
+<a
+    class="flex gap-6 w-full justify-between"
+    href={`essays/${slugOptions(essay)}`}
+>
+    <p class="text-slate-400">
+        {dateOptionsDayMonth(essay.frontmatter.pubDate)}
+    </p>
     <p class="hover:translate-x-1 transition-all ease-out duration-300">
-        {title}
+        {essay.frontmatter.title}
     </p>
 </a>

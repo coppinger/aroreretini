@@ -1,67 +1,53 @@
 ---
-// @ts-nocheck
-const { pathname } = Astro.url;
-const url = pathname.split("/");
-
-import className from "classnames";
-
-import Button from "../components/Button.astro";
-
+//@ts-nocheck
 import EssayListItem from "./EssayListItem.astro";
-const { dummyBlogData } = Astro.props;
-let featuredEssays = [];
-let latestEssays = [];
+import className from "classnames";
+import Button from "./Button.astro";
+import H4 from "./H4.astro";
+import Badge from "@components/Badge.astro";
 
-dummyBlogData.map(([href, date, title, isFeatured]) => {
-    if (isFeatured === true) {
-        featuredEssays.push([href, date, title, isFeatured]);
-    } else {
-        latestEssays.push([href, date, title, isFeatured]);
-    }
+const { essays, isIndex } = Astro.props;
+
+const essayList = {
+    featured: [],
+    notFeatured: [],
+};
+
+essays.forEach((essay) => {
+    essay.frontmatter.isFeatured
+        ? essayList.featured.push(essay)
+        : essayList.notFeatured.push(essay);
 });
-
-import H4 from "../components/H4.astro";
 ---
 
-<div
-    class={className(
+<div class="flex flex-col gap-8 card-outline">
+    <!-- class={className(
         "flex flex-col gap-8 card-outline",
         !url[1] ? "order-3" : ""
-    )}
->
-    {!url[1] ? <h3>Essays</h3> : ""}
-    {featuredEssays.length ? <H4 text="FEATURED ESSAYS" /> : ""}
+    )} -->
+
+    {isIndex && <h2>Essays</h2>}
+    {essayList.featured[0] && <H4 text="FEATURED ESSAYS" />}
     {
-        featuredEssays.map(([href, date, title, isFeatured]) => (
-            <EssayListItem
-                href={href}
-                date={date}
-                title={title}
-                isFeatured={isFeatured}
-            />
-        ))
+        essayList.featured.map((essay) => {
+            return <EssayListItem essay={essay} />;
+        })
     }
-    {featuredEssays.length ? <H4 text="LATEST ESSAYS" /> : ""}
+
+    {essayList.featured[0] && <H4 text="LATEST ESSAYS" />}
     {
-        latestEssays.map(([href, date, title, isFeatured]) => (
-            <EssayListItem
-                href={href}
-                date={date}
-                title={title}
-                isFeatured={isFeatured}
-            />
-        ))
+        essayList.notFeatured.map((essay) => {
+            return <EssayListItem essay={essay} />;
+        })
     }
     {
-        !url[1] ? (
+        isIndex && (
             <Button
                 style="naked"
                 text="VIEW ESSAYS →"
-                href="#"
+                href="/essays"
                 extraClasses="self-end"
             />
-        ) : (
-            ""
         )
     }
 </div>

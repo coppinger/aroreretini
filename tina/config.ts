@@ -142,6 +142,49 @@ export default defineConfig({
                     },
                 ],
             },
+            {
+                name: "essays",
+                label: "Essays",
+                path: "src/content/essays",
+                format: "mdx",
+                fields: [
+                    {
+                        type: "string",
+                        name: "title",
+                        label: "Title",
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: "datetime",
+                        name: "pubDate",
+                        label: "pubDate",
+                        required: true,
+                    },
+                    {
+                        type: "boolean",
+                        name: "isFeatured",
+                        label: "Featured",
+                    },
+                    {
+                        type: "string",
+                        name: "tags",
+                        label: "Tags",
+                        required: true,
+                        list: true,
+                        ui: {
+                            component: "tags",
+                        },
+                    },
+                    {
+                        type: "rich-text",
+                        name: "body",
+                        label: "Body",
+                        required: true,
+                        isBody: true,
+                    },
+                ],
+            },
         ],
     },
 });

@@ -1,0 +1,39 @@
+---
+import slugify from "slugify";
+import { slugOptions } from "@lib/slug";
+import { dateOptionsDayMonth, dateOptionsDayMonthYear } from "@lib/dateOptions";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import H4 from "../../components/H4.astro";
+import Badge from "../../components/Badge.astro";
+
+export async function getStaticPaths() {
+    const essays = await Astro.glob("../../content/essays/*.mdx");
+
+    return essays.map((essay) => ({
+        params: {
+            slug: slugOptions(essay),
+        },
+        props: { essay },
+    }));
+}
+
+const { Content, frontmatter } = Astro.props.essay;
+
+console.log(frontmatter.tags);
+---
+
+<BaseLayout>
+    <main slot="main">
+        <div class="flex gap-8">
+            <article class="flex flex-col gap-4 max-w-lg">
+                <a href="/projects"><-- back to projects</a>
+                <h1>{frontmatter.title}</h1>
+                <p>Started {dateOptionsDayMonthYear(frontmatter.pubDate)}</p>
+                <div class="flex flex-col gap-8">
+                    <Content />
+                </div>
+            </article>
+        </div>
+    </main>
+</BaseLayout>

@@ -3,6 +3,12 @@ import classNames from "classnames";
 
 import iconList from "../iconList.js";
 
+interface Props {
+    iconName: string;
+    color: string;
+    iconSize: string;
+}
+
 const { iconName, color, iconSize } = Astro.props;
 const fillColor = `fill-${color}-950`;
 ---

@@ -3,8 +3,15 @@ import className from "classnames";
 
 import Icon from "./Icon.astro";
 
-const { href, text, leading, trailing, iconSize, noAnchor, extraClasses } =
-    Astro.props;
+interface Props {
+    text: string;
+    noAnchor: boolean;
+    extraClasses: string;
+    color?: string;
+    iconName?: string;
+}
+
+const { text, noAnchor, extraClasses } = Astro.props;
 let { color, iconName } = Astro.props;
 
 if (text === "Dead") {
