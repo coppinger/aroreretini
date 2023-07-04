@@ -29,9 +29,10 @@ essays.forEach((essay) => {
     {isIndex && <h2>Essays</h2>}
     {essayList.featured[0] && <H4 text="FEATURED ESSAYS" />}
     {
-        essayList.featured.map((essay) => {
-            return <EssayListItem essay={essay} />;
-        })
+        isIndex &&
+            essayList.featured.map((essay) => {
+                return <EssayListItem essay={essay} />;
+            })
     }
 
     {essayList.featured[0] && <H4 text="LATEST ESSAYS" />}

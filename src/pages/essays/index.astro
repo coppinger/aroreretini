@@ -1,5 +1,5 @@
 ---
-import EssayList from "../../components/EssayList.astro";
+import EssayList from "@components/EssayList.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const essays = await Astro.glob("../../content/essays/*.mdx");
@@ -14,11 +14,7 @@ const essays = await Astro.glob("../../content/essays/*.mdx");
             <div
                 class="border-l-2 border-dashed border-slate-700 flex flex-col gap-8 py-6"
             >
-                {
-                    essays.map(({ frontmatter }) => {
-                        return <p>{frontmatter.title}</p>;
-                    })
-                }
+                <EssayList essays={essays} isIndex={false} />
             </div>
         </div>
     </main>
