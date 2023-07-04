@@ -1,12 +1,14 @@
 ---
-const { href, date, title, status } = Astro.props;
 import Badge from "./Badge.astro";
+import { slugOptions } from "@lib/slug.js";
+
+const { project } = Astro.props;
 ---
 
-<a class="flex gap-6 w-full" href={href}>
-    <p class="text-slate-400 w-24 shrink-0">{date}</p>
+<a class="flex gap-6 w-full" href={`projects/${slugOptions(project)}`}>
+    <p class="text-slate-400 w-24 shrink-0">{project.frontmatter.date}</p>
     <p class="hover:translate-x-1 transition-all ease-out duration-300 w-full">
-        {title}
+        {project.frontmatter.title}
     </p>
-    <Badge text={status} noAnchor={true} />
+    <Badge text={project.frontmatter.status} noAnchor={true} />
 </a>
