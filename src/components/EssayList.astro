@@ -20,12 +20,7 @@ essays.forEach((essay) => {
 });
 ---
 
-<div class="flex flex-col gap-8 card-outline max-w-screen-2xl w-full">
-    <!-- class={className(
-        "flex flex-col gap-8 card-outline",
-        !url[1] ? "order-3" : ""
-    )} -->
-
+<div class="flex flex-col gap-8 card-outline max-w-lg">
     {isIndex && <h2>Essays</h2>}
     {essayList.featured[0] && isIndex && <H4 text="FEATURED ESSAYS" />}
     {
