@@ -20,14 +20,14 @@ essays.forEach((essay) => {
 });
 ---
 
-<div class="flex flex-col gap-8 card-outline max-w-screen-2xl">
+<div class="flex flex-col gap-8 card-outline max-w-screen-2xl w-full">
     <!-- class={className(
         "flex flex-col gap-8 card-outline",
         !url[1] ? "order-3" : ""
     )} -->
 
     {isIndex && <h2>Essays</h2>}
-    {essayList.featured[0] && <H4 text="FEATURED ESSAYS" />}
+    {essayList.featured[0] && isIndex && <H4 text="FEATURED ESSAYS" />}
     {
         isIndex &&
             essayList.featured.map((essay) => {
@@ -35,7 +35,7 @@ essays.forEach((essay) => {
             })
     }
 
-    {essayList.featured[0] && <H4 text="LATEST ESSAYS" />}
+    {essayList.featured[0] && isIndex && <H4 text="LATEST ESSAYS" />}
     {
         essayList.notFeatured.map((essay) => {
             return <EssayListItem essay={essay} />;
