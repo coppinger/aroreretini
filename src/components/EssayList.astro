@@ -5,8 +5,11 @@ import className from "classnames";
 import Button from "./Button.astro";
 import H4 from "./H4.astro";
 import Badge from "@components/Badge.astro";
+import { dateOptionsDayMonth } from "@lib/dateOptions";
 
 const { essays, isIndex } = Astro.props;
+
+// Handle featured posts
 
 const essayList = {
     featured: [],
@@ -18,23 +21,95 @@ essays.forEach((essay) => {
         ? essayList.featured.push(essay)
         : essayList.notFeatured.push(essay);
 });
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+let sortedEssays = essays.sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf()
+);
+
+sortedEssays = sortedEssays.map((essay, index) => {
+    return {
+        ...essay,
+        index,
+    };
+});
+
+// Group posts by month & year
+const dateEssaysArray = [];
+
+sortedEssays.forEach((essay) => {
+    let isMonthAdded = false;
+
+    let essayMonth = new Date(essay.frontmatter.pubDate).toLocaleDateString(
+        "en-us",
+        {
+            month: "long",
+            year: "numeric",
+        }
+    );
+
+    if (dateEssaysArray.length === 0) {
+        dateEssaysArray.push(essayMonth);
+    }
+
+    for (let i = 0; i < dateEssaysArray.length; i++) {
+        if (dateEssaysArray[i] === essayMonth) {
+            isMonthAdded = true;
+        }
+    }
+    if (isMonthAdded === false) {
+        dateEssaysArray.push(essayMonth);
+    }
+});
+
+const groupedEssays = dateEssaysArray.map((month) => {
+    return sortedEssays.filter((essay) => {
+        return (
+            month ===
+            new Date(essay.frontmatter.pubDate).toLocaleDateString("en-us", {
+                month: "long",
+                year: "numeric",
+            })
+        );
+    });
+});
 ---
 
 <div class="flex flex-col gap-8 card-outline max-w-lg">
-    {isIndex && <h2>Essays</h2>}
+    {
+        isIndex && (
+            <a href="/essays">
+                <h2>Essays</h2>
+            </a>
+        )
+    }
     {essayList.featured[0] && isIndex && <H4 text="FEATURED ESSAYS" />}
     {
         isIndex &&
-            essayList.featured.map((essay) => {
-                return <EssayListItem essay={essay} />;
-            })
+            essayList.featured
+                .sort((a, b) => {
+                    return (
+                        new Date(b.frontmatter.pubDate).valueOf() -
+                        new Date(a.frontmatter.pubDate).valueOf()
+                    );
+                })
+                .map((essay, index) => {
+                    return (
+                        <>
+                            <EssayListItem essay={essay} />
+                        </>
+                    );
+                })
     }
 
     {essayList.featured[0] && isIndex && <H4 text="LATEST ESSAYS" />}
     {
-        essayList.notFeatured.map((essay) => {
-            return <EssayListItem essay={essay} />;
-        })
+        isIndex &&
+            essayList.notFeatured.map((essay, index) => {
+                return index < 5 && <EssayListItem essay={essay} />;
+            })
     }
     {
         isIndex && (
@@ -45,5 +120,22 @@ essays.forEach((essay) => {
                 extraClasses="self-end"
             />
         )
+    }
+    {
+        !isIndex &&
+            groupedEssays.map((month, indexGrouped) => {
+                let [dateEssaysMonth, dateEssaysYear] =
+                    dateEssaysArray[indexGrouped].split(" ");
+                return (
+                    <Fragment>
+                        <h2>{dateEssaysMonth}</h2>
+                        <ul class="grid gap-8 max-w-md">
+                            {month.map((essay, indexMonth, array) => {
+                                return <EssayListItem essay={essay} />;
+                            })}
+                        </ul>
+                    </Fragment>
+                );
+            })
     }
 </div>

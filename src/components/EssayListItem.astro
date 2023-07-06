@@ -7,14 +7,16 @@ const { essay } = Astro.props;
 ---
 
 <a
-    class="flex gap-6 grow justify-between"
+    class="flex gap-6 grow-0 justify-between min-w-0"
     href={`essays/${slugOptions(essay)}`}
 >
-    <p class="text-slate-400">
+    <p class="text-slate-400 grow shrink-0">
         {dateOptionsDayMonth(essay.frontmatter.pubDate)}
     </p>
 
-    <p class="hover:translate-x-1 transition-all ease-out duration-300">
+    <p
+        class="hover:translate-x-1 transition-all ease-out duration-300 overflow-hidden text-ellipsis whitespace-nowrap"
+    >
         {essay.frontmatter.title}
     </p>
 </a>
