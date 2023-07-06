@@ -1,0 +1,62 @@
+---
+import { slugOptions } from "@lib/slug";
+
+export async function getStaticPaths() {
+    const essays = await Astro.glob("../../content/essays/*.mdx");
+
+    let tagsArr = [];
+
+    essays.forEach((essay) => {
+        essay.frontmatter.tags &&
+            essay.frontmatter.tags.forEach((tag) => {
+                tagsArr.push(tag);
+            });
+    });
+
+    let tagSet = [...new Set(tagsArr)];
+
+    return tagSet.map((tag) => ({
+        params: {
+            tags: slugOptions(tag),
+        },
+        props: essays,
+    }));
+}
+
+const essays = await Astro.glob("../../content/essays/*.mdx");
+const { tags: tag } = Astro.params;
+
+// essays[0].frontmatter.tags.forEach((essayTag) => {
+//     if (essayTag === tag) {
+//         console.log(essayTag);
+//     }
+// });
+
+// 1. search through all posts
+// 2. check if the tag for this page exists in the array of tags for each post
+// 3. if true, add the post to a list
+// 4. render on page (map)
+
+const filteredEssays = essays.filter((essay) => {
+    return essay.frontmatter.tags?.map((tag) => slugOptions(tag)).includes(tag);
+});
+
+essays.map((essay) => {
+    console.log(essay.frontmatter.tags);
+});
+
+// const filteredPosts = essays.filter((essay) => {
+//     essay.frontmatter.tags.forEach((essayTag) => {
+//         return essayTag === tag;
+//     });
+// });
+---
+
+<div class="flex"><p>Tag:</p><p>{tag}</p></div>
+<hr />
+
+{
+    filteredEssays.map((essay) => {
+        return <p>{essay.frontmatter.title}</p>;
+    })
+}

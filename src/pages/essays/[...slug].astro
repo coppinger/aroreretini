@@ -12,15 +12,13 @@ export async function getStaticPaths() {
 
     return essays.map((essay) => ({
         params: {
-            slug: slugOptions(essay),
+            slug: slugOptions(essay.frontmatter.title),
         },
         props: { essay },
     }));
 }
 
 const { Content, frontmatter } = Astro.props.essay;
-
-console.log(frontmatter.tags);
 ---
 
 <BaseLayout>

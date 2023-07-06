@@ -8,7 +8,7 @@ const { essay } = Astro.props;
 
 <a
     class="flex gap-6 grow-0 justify-between min-w-0"
-    href={`essays/${slugOptions(essay)}`}
+    href={`essays/${slugOptions(essay.frontmatter.title)}`}
 >
     <p class="text-slate-400 grow shrink-0">
         {dateOptionsDayMonth(essay.frontmatter.pubDate)}

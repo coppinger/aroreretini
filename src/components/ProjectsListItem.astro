@@ -5,7 +5,10 @@ import { slugOptions } from "@lib/slug.js";
 const { project } = Astro.props;
 ---
 
-<a class="flex gap-6 w-full" href={`projects/${slugOptions(project)}`}>
+<a
+    class="flex gap-6 w-full"
+    href={`projects/${slugOptions(project.frontmatter.title)}`}
+>
     <p class="text-slate-400 w-24 shrink-0">{project.frontmatter.date}</p>
     <p class="hover:translate-x-1 transition-all ease-out duration-300 w-full">
         {project.frontmatter.title}
