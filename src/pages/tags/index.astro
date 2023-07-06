@@ -1,0 +1,22 @@
+---
+const essays = await Astro.glob("../../content/essays/*.mdx");
+
+import { slugOptions } from "@lib/slug";
+
+let tagsArr = [];
+
+essays.forEach((essay) => {
+    essay.frontmatter.tags &&
+        essay.frontmatter.tags.forEach((tag) => {
+            tagsArr.push(tag);
+        });
+});
+
+let tagSet = [...new Set(tagsArr)];
+---
+
+{
+    tagSet.map((tag) => {
+        return <a href={`tags/${slugOptions(tag)}`}>{tag}</a>;
+    })
+}
