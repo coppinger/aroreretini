@@ -7,6 +7,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import H4 from "../../components/H4.astro";
 import Badge from "../../components/Badge.astro";
 import Tag from "@components/Tag.astro";
+import BackButton from "@components/BackButton.astro";
 
 export async function getStaticPaths() {
     const essays = await Astro.glob("../../content/essays/*.mdx");
@@ -26,7 +27,7 @@ const { Content, frontmatter } = Astro.props.essay;
     <main slot="main">
         <div class="flex gap-8">
             <article class="flex flex-col gap-4 max-w-lg">
-                <a href="/essays"><-- back to essays</a>
+                <BackButton href="essays" text="back to essays" />
                 <h1>{frontmatter.title}</h1>
                 <div class="flex gap-4 flex-wrap">
                     {frontmatter.tags?.map((tag) => <Tag tag={tag} />)}

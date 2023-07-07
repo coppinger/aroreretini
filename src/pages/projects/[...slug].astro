@@ -4,6 +4,7 @@ import slugify from "slugify";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import H4 from "../../components/H4.astro";
 import Badge from "../../components/Badge.astro";
+import BackButton from "@components/BackButton.astro";
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("../../content/projects/*.mdx");
@@ -23,7 +24,8 @@ let projectArr = Object.entries(frontmatter);
     <main slot="main">
         <div class="flex gap-8">
             <article class="flex flex-col gap-4 max-w-lg">
-                <a href="/projects"><-- back to projects</a>
+                <BackButton href="projects" text="back to projects" />
+
                 <h1>{frontmatter.title}</h1>
                 <p>Started {frontmatter.date}</p>
                 <div class="flex flex-col gap-8">

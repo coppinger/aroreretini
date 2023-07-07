@@ -9,7 +9,7 @@ import slugify from "slugify";
 // import testImage from "../images/portrait.jpg";
 ---
 
-<a class="flex flex-col" href={`projects/${slugify(title).toLowerCase()}`}>
+<a class="flex flex-col" href={`/projects/${slugify(title).toLowerCase()}`}>
     <div class="flex flex-col border-2 border-l-0 border-slate-700">
         <div class="relative">
             <Image src={cover} width={896} height={392} />
