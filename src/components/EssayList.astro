@@ -107,9 +107,16 @@ const groupedEssays = dateEssaysArray.map((month) => {
     {essayList.featured[0] && isIndex && <H4 text="LATEST ESSAYS" />}
     {
         isIndex &&
-            essayList.notFeatured.map((essay, index) => {
-                return index < 5 && <EssayListItem essay={essay} />;
-            })
+            essayList.notFeatured
+                .sort((a, b) => {
+                    return (
+                        new Date(b.frontmatter.pubDate).valueOf() -
+                        new Date(a.frontmatter.pubDate).valueOf()
+                    );
+                })
+                .map((essay, index) => {
+                    return index < 5 && <EssayListItem essay={essay} />;
+                })
     }
     {
         isIndex && (
