@@ -1,0 +1,28 @@
+---
+const essays = await Astro.glob("../content/essays/*.mdx");
+
+import Tag from "@components/Tag.astro";
+import { slugOptions } from "@lib/slug";
+import BaseLayout from "src/layouts/BaseLayout.astro";
+
+let tagsArr = [];
+
+essays.forEach((essay) => {
+    essay.frontmatter.tags &&
+        essay.frontmatter.tags.forEach((tag) => {
+            tagsArr.push(tag);
+        });
+});
+
+let tagSet = [...new Set(tagsArr)];
+---
+
+<div class="flex flex-wrap gap-4 justify-end">
+    {
+        tagSet.map((tag, index) => {
+            // To implement a limit later:
+            // if (index < 5) return <Tag tag={tag} />;
+            return <Tag tag={tag} />;
+        })
+    }
+</div>

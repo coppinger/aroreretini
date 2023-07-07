@@ -1,0 +1,12 @@
+---
+import { Image } from "@astrojs/image/components";
+const { image, name, Content } = Astro.props;
+---
+
+<div class="card-dark max-w-lg">
+    <div class="flex gap-4 items-center">
+        <Image src={image} height={64} aspectRatio={1} />
+        <h3>{name}</h3>
+    </div>
+    <Content />
+</div>
