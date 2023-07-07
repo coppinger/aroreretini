@@ -29,10 +29,6 @@ const { tags: tag } = Astro.params;
 const filteredEssays = essays.filter((essay) => {
     return essay.frontmatter.tags?.map((tag) => slugOptions(tag)).includes(tag);
 });
-
-essays.map((essay) => {
-    console.log(essay.frontmatter.tags);
-});
 ---
 
 <div class="flex"><p>Tag:</p><p>{tag}</p></div>
