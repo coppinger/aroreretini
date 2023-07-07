@@ -185,6 +185,39 @@ export default defineConfig({
                     },
                 ],
             },
+            {
+                name: "people",
+                label: "People",
+                path: "src/content/people",
+                format: "mdx",
+                fields: [
+                    {
+                        type: "string",
+                        name: "name",
+                        label: "Name",
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: "image",
+                        name: "image",
+                        label: "Image",
+                    },
+                    {
+                        type: "datetime",
+                        name: "creationDate",
+                        label: "Creation Date",
+                        required: true,
+                    },
+                    {
+                        type: "rich-text",
+                        name: "body",
+                        label: "Body",
+                        required: true,
+                        isBody: true,
+                    },
+                ],
+            },
         ],
     },
 });
