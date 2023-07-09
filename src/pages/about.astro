@@ -1,6 +1,9 @@
 ---
-import Tag from "@components/Tag.astro";
+import YesNo from "@components/YesNo.astro";
 import BaseLayout from "src/layouts/BaseLayout.astro";
+
+const aboutContent = await Astro.glob("../content/_about.mdx");
+const { Content } = aboutContent[0];
 ---
 
 <BaseLayout>
@@ -11,26 +14,34 @@ import BaseLayout from "src/layouts/BaseLayout.astro";
             </div>
             <div class="flex flex-col gap-8">
                 <div class="card-dark">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Possimus, similique saepe! Ipsam voluptates
-                        quisquam, nam laudantium eum aspernatur accusamus eius
-                        explicabo amet doloremque et, quo neque obcaecati, ea
-                        nemo saepe!
-                    </p>
+                    <Content />
                 </div>
                 <div class="card-outline flex flex-col gap-8">
                     <h2>Yes</h2>
                     <div class="flex gap-4 flex-wrap">
-                        <Tag tag="Jane Smith" />
-                        <Tag tag="William Davis" />
-                        <Tag tag="William Davis" />
-                        <Tag tag="Ella Lewis" />
-                        <Tag tag="Emily Brown" />
-                        <Tag tag="Sophia Hernandez" />
-                        <Tag tag="Christopher White" />
+                        <YesNo
+                            yes={true}
+                            text="Astro Build"
+                            href="https://astro.build"
+                        />
+                        <YesNo
+                            yes={true}
+                            text="Tina CMS"
+                            href="https://tina.io"
+                        />
+                        <YesNo yes={true} text="Climbing" />
+                        <YesNo yes={true} text="Piano" />
+                        <YesNo yes={true} text="Running" />
+                        <YesNo yes={true} text="Communities" />
                     </div>
                     <h2>No</h2>
+                    <div class="flex gap-4 flex-wrap">
+                        <YesNo yes={false} text="Match Making Algorithms " />
+                        <YesNo yes={false} text="Endocrine Disruptors" />
+                        <YesNo yes={false} text="Seed Oils" />
+                        <YesNo yes={false} text="PFAS/BPA etc." />
+                        <YesNo yes={false} text="Learned helplessness" />
+                    </div>
                 </div>
             </div>
         </div>

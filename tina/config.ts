@@ -20,30 +20,6 @@ export default defineConfig({
         },
     },
     schema: {
-        pages: [
-            {
-                name: "pages",
-                label: "Pages",
-                path: "src/content/pages",
-                format: "mdx",
-                fields: [
-                    {
-                        type: "string",
-                        name: "title",
-                        label: "Title",
-                        isTitle: true,
-                        required: true,
-                    },
-                    {
-                        type: "rich-text",
-                        name: "body",
-                        label: "Body",
-                        required: true,
-                        isBody: true,
-                    },
-                ],
-            },
-        ],
         collections: [
             {
                 name: "project",
