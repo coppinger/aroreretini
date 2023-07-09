@@ -1,6 +1,10 @@
 ---
 const essays = await Astro.glob("../content/essays/*.mdx");
 
+import classNames from "classnames";
+
+const { extraClasses } = Astro.props;
+
 import Tag from "@components/Tag.astro";
 import { slugOptions } from "@lib/slug";
 import BaseLayout from "src/layouts/BaseLayout.astro";
@@ -17,7 +21,7 @@ essays.forEach((essay) => {
 let tagSet = [...new Set(tagsArr)];
 ---
 
-<div class="flex flex-wrap gap-4 justify-end">
+<div class={classNames("flex flex-wrap gap-4 " + extraClasses)}>
     {
         tagSet.map((tag, index) => {
             // To implement a limit later:

@@ -6,9 +6,9 @@ import TagCloud from "./TagCloud.astro";
 ---
 
 <div
-    class="w-96 items-center lg:items-end lg:w-52 h-fit flex flex-row lg:flex-col gap-8 md:sticky md:top-4"
+    class="w-full lg:max-w-[96rem] items-center lg:items-end lg:w-52 h-fit flex flex-row lg:flex-col gap-8 md:sticky md:top-4"
 >
-    <div class="relative">
+    <div class="max-w-[12rem] md:w-full relative">
         <Image
             src={portrait}
             alt="Portrait photo of the author, Charlie Coppinger"
@@ -41,7 +41,7 @@ import TagCloud from "./TagCloud.astro";
             </svg>
         </div>
     </div>
-    <ul class="flex flex-col gap-4 place-items-end">
+    <ul class="flex flex-col gap-4">
         <li>
             <a
                 class="flex gap-2 items-center justify-center"
@@ -70,5 +70,10 @@ import TagCloud from "./TagCloud.astro";
             >
         </li>
     </ul>
+    <div class="hidden lg:block justify-end place-items-end">
+        <TagCloud extraClasses=" justify-end" />
+    </div>
+</div>
+<div class="block lg:hidden mt-8 self-start">
     <TagCloud />
 </div>
