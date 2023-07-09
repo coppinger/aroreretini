@@ -10,6 +10,7 @@ import image from "@astrojs/image";
 export default defineConfig({
     site: "https://aroreretini.dev",
     integrations: [
+        [sitemap()],
         mdx(),
         sitemap(),
         tailwind({
