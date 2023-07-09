@@ -162,6 +162,11 @@ export default defineConfig({
                         required: true,
                     },
                     {
+                        type: "string",
+                        name: "subTitle",
+                        label: "Sub Title",
+                    },
+                    {
                         type: "boolean",
                         name: "isFeatured",
                         label: "Featured",

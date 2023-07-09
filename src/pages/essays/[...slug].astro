@@ -33,6 +33,11 @@ const { Content, frontmatter } = Astro.props.essay;
                 </div>
                 <article>
                     <h1>{frontmatter.title}</h1>
+                    {
+                        frontmatter.subTitle && (
+                            <p class="my-2 font-bold">{frontmatter.subTitle}</p>
+                        )
+                    }
                     <p class="text-slate-400 mb-8">
                         Started
 
