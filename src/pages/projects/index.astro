@@ -3,6 +3,13 @@ import ProjectsPageItem from "../../components/ProjectsPageItem.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const projects = await Astro.glob("../../content/projects/*.mdx");
+
+const projectsSorted = projects.sort((a, b) => {
+    return (
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf()
+    );
+});
 ---
 
 <BaseLayout>

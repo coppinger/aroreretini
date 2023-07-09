@@ -1,10 +1,12 @@
 ---
+import { dateOptionsMonthYear } from "@lib/dateOptions";
+import slugify from "slugify";
+
 const { title, description, date, status, cover } = Astro.props;
 
 import { Image } from "@astrojs/image/components";
 import Badge from "./Badge.astro";
 import Button from "./Button.astro";
-import slugify from "slugify";
 
 // import testImage from "../images/portrait.jpg";
 ---
@@ -20,7 +22,7 @@ import slugify from "slugify";
             />
         </div>
         <div class="flex flex-col gap-2 p-6">
-            <p class="text-slate-400">{date}</p>
+            <p class="text-slate-400">{dateOptionsMonthYear(date)}</p>
             <h2>{title}</h2>
             <p class="mb-4">{description}</p>
             <p

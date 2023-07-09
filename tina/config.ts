@@ -116,7 +116,7 @@ export default defineConfig({
                         },
                     },
                     {
-                        type: "string",
+                        type: "datetime",
                         name: "date",
                         label: "Date",
                         required: true,

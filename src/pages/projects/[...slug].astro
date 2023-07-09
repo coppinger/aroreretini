@@ -1,5 +1,6 @@
 ---
 import slugify from "slugify";
+import { dateOptionsMonthYear } from "@lib/dateOptions";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import H4 from "../../components/H4.astro";
@@ -27,7 +28,9 @@ let projectArr = Object.entries(frontmatter);
                 <BackButton href="projects" text="back to projects" />
 
                 <h1>{frontmatter.title}</h1>
-                <p>Started {frontmatter.date}</p>
+                <p class="text-slate-400 mb-8">
+                    Started {dateOptionsMonthYear(frontmatter.date)}
+                </p>
                 <div class="flex flex-col gap-8">
                     <!-- {
                         projectArr

@@ -16,3 +16,12 @@ export function dateOptionsDayMonthYear(date) {
 
     return new Date(date).toLocaleDateString("en-US", dateOptionsDayMonth);
 }
+
+export function dateOptionsMonthYear(date) {
+    const dateOptionsMonthYear: Intl.DateTimeFormatOptions = {
+        month: "long",
+        year: "numeric",
+    };
+
+    return new Date(date).toLocaleDateString("en-US", dateOptionsMonthYear);
+}
