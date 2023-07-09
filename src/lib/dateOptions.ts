@@ -1,7 +1,7 @@
 export function dateOptionsDayMonth(date) {
     const dateOptionsDayMonth: Intl.DateTimeFormatOptions = {
         day: "numeric",
-        month: "long",
+        month: "short",
     };
 
     return new Date(date).toLocaleDateString("en-US", dateOptionsDayMonth);

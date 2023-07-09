@@ -1,6 +1,8 @@
 ---
-import Badge from "./Badge.astro";
 import { slugOptions } from "@lib/slug.js";
+import { dateOptionsDayMonth } from "@lib/dateOptions";
+
+import Badge from "./Badge.astro";
 
 const { project } = Astro.props;
 ---
@@ -9,7 +11,9 @@ const { project } = Astro.props;
     class="flex gap-6 w-full"
     href={`projects/${slugOptions(project.frontmatter.title)}`}
 >
-    <p class="text-slate-400 w-24 shrink-0">{project.frontmatter.date}</p>
+    <p class="text-slate-400 shrink-0">
+        {dateOptionsDayMonth(project.frontmatter.date)}
+    </p>
     <p class="hover:translate-x-1 transition-all ease-out duration-300 w-full">
         {project.frontmatter.title}
     </p>

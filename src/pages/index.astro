@@ -135,7 +135,7 @@ console.log(activeProjects[0]);
                         I'm a serial founder and a jack of all trades: UI/UX
                         design, marketing, front-end, product.
                     </p>
-                    <div class="flex">
+                    <div class="flex flex-wrap">
                         <p>
                             I’m currently working on {
                                 activeProjects.map(
@@ -175,13 +175,20 @@ console.log(activeProjects[0]);
                 <div class="flex flex-col gap-8 card-outline max-w-screen-2xl">
                     <a href="/projects"><h2>Projects</h2></a>
                     {
-                        projects.map((project, index) => {
-                            return (
-                                index < 5 && (
-                                    <ProjectsListItem project={project} />
-                                )
-                            );
-                        })
+                        projects
+                            .sort((a, b) => {
+                                return (
+                                    new Date(b.frontmatter.date).valueOf() -
+                                    new Date(a.frontmatter.date).valueOf()
+                                );
+                            })
+                            .map((project, index) => {
+                                return (
+                                    index < 5 && (
+                                        <ProjectsListItem project={project} />
+                                    )
+                                );
+                            })
                     }
                     <Button
                         style="naked"
