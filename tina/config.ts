@@ -242,6 +242,43 @@ export default defineConfig({
                     },
                 ],
             },
+            {
+                name: "quotes",
+                label: "Quotes",
+                path: "src/content/quotes",
+                format: "mdx",
+                fields: [
+                    {
+                        type: "string",
+                        name: "author",
+                        label: "Author",
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: "string",
+                        name: "text",
+                        label: "Text",
+                        isBody: true,
+                        required: true,
+                        ui: {
+                            component: "textarea",
+                        },
+                    },
+                    {
+                        type: "datetime",
+                        name: "publicationDate",
+                        label: "Publication Date",
+                        required: true,
+                    },
+                    {
+                        type: "string",
+                        name: "note",
+                        label: "Note",
+                        required: false,
+                    },
+                ],
+            },
         ],
     },
 });

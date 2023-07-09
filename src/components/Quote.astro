@@ -1,23 +1,21 @@
 ---
 import Icon from "./Icon.astro";
-const { quote, author, comment, date } = Astro.props;
+const { Content, author, note, publicationDate } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-2 card-dark">
-        <p>{quote}</p>
+        <Content />
         <p class="text-slate-400">— {author}</p>
     </div>
     <div class="flex flex-col gap-2 items-end text-right">
-        {comment ? <p class="text-sm">{comment}</p> : ""}
+        {note && <p class="text-sm">{note}</p>}
         {
-            date ? (
+            publicationDate && (
                 <div class="flex gap-2 items-center">
                     <Icon iconName="calendar" color="slate" iconSize="16px" />
-                    <p class="text-sm text-slate-400">{date}</p>
+                    <p class="text-sm text-slate-400">{publicationDate}</p>
                 </div>
-            ) : (
-                ""
             )
         }
     </div>

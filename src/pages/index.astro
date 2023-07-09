@@ -13,14 +13,14 @@ import NavSubTitle from "../components/layout/side-menu/NavSubTitle.astro";
 import IndexSidebar from "../components/IndexSidebar.astro";
 import Logo from "../components/layout/side-menu/Logo.astro";
 
-// const dummyProjectsData = [
-//     ["#", "May 2023", "Bookstop", "Active"],
-//     ["#", "May 2023", "Illuminati Revival Band", "Paused"],
-//     ["#", "May 2023", "Pokemon Clone", "Dead"],
-// ];
-
 const essays = await Astro.glob("../content/essays/*.mdx");
 const projects = await Astro.glob("../content/projects/*.mdx");
+
+const activeProjects = projects.filter((project) => {
+    return project.frontmatter.status === "Active" || "Paused";
+});
+
+console.log(activeProjects[0]);
 ---
 
 <BaseLayout>
@@ -135,12 +135,31 @@ const projects = await Astro.glob("../content/projects/*.mdx");
                         I'm a serial founder and a jack of all trades: UI/UX
                         design, marketing, front-end, product.
                     </p>
-                    <p>
-                        I’m currently working on <a class="anchor" href="#"
-                            >Bookstop</a
-                        >, <a class="anchor" href="#">Pokemon Clone</a> and
-                        <a class="anchor" href="#">Everquest 4</a>.
-                    </p>
+                    <div class="flex">
+                        <p>
+                            I’m currently working on {
+                                activeProjects.map(
+                                    ({ frontmatter: project }, index) => {
+                                        return (
+                                            <>
+                                                <a
+                                                    href={`/projects/${project.title}`}
+                                                    class="underline"
+                                                >
+                                                    {project.title}
+                                                </a>
+                                                <p>
+                                                    {index !==
+                                                        activeProjects.length -
+                                                            1 && <p>,&nbsp;</p>}
+                                                </p>
+                                            </>
+                                        );
+                                    }
+                                )
+                            }.
+                        </p>
+                    </div>
                     <p>
                         I was diagnosed with ADD (ADHD-I) as a young adult, and,
                         for what it’s worth, my Myers-Briggs personality type is
