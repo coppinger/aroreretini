@@ -26,17 +26,28 @@ const { Content, frontmatter } = Astro.props.essay;
 <BaseLayout>
     <main slot="main">
         <div class="flex gap-8">
-            <article class="flex flex-col gap-4 max-w-lg">
+            <div class="flex flex-col gap-4 max-w-lg">
                 <BackButton href="essays" text="back to essays" />
-                <h1>{frontmatter.title}</h1>
                 <div class="flex gap-4 flex-wrap">
                     {frontmatter.tags?.map((tag) => <Tag tag={tag} />)}
                 </div>
-                <p>Started {dateOptionsDayMonthYear(frontmatter.pubDate)}</p>
-                <div class="flex flex-col gap-8">
-                    <Content />
-                </div>
-            </article>
+                <article>
+                    <h1>{frontmatter.title}</h1>
+                    <p class="text-slate-400 mb-8">
+                        Started
+
+                        <time datetime={frontmatter.pubDate}
+                            >{
+                                dateOptionsDayMonthYear(frontmatter.pubDate)
+                            }</time
+                        >
+                    </p>
+
+                    <div class="flex flex-col gap-8">
+                        <Content />
+                    </div>
+                </article>
+            </div>
         </div>
     </main>
 </BaseLayout>

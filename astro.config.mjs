@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import rehypeExternalLinks from "rehype-external-links";
 
 import image from "@astrojs/image";
 
@@ -20,4 +21,15 @@ export default defineConfig({
             serviceEntryPoint: "@astrojs/image/sharp",
         }),
     ],
+    markdown: {
+        rehypePlugins: [
+            [
+                rehypeExternalLinks,
+                {
+                    content: { type: "text", value: " ↗" },
+                    target: "_blank",
+                },
+            ],
+        ],
+    },
 });

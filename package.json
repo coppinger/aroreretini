@@ -21,6 +21,7 @@
         "@tinacms/cli": "^1.5.21",
         "astro": "^2.5.5",
         "classnames": "^2.3.2",
+        "rehype-external-links": "^2.1.0",
         "sharp": "^0.32.1",
         "slugify": "^1.6.6",
         "tailwindcss": "^3.3.2",
