@@ -255,6 +255,28 @@ export default defineConfig({
                     },
                 ],
             },
+            {
+                name: "pages",
+                label: "Pages",
+                path: "src/content/pages",
+                format: "mdx",
+                ui: {
+                    // Don't allow editors to create new navigation items
+                    allowedActions: {
+                        create: false,
+                        delete: false,
+                    },
+                },
+                fields: [
+                    {
+                        type: "rich-text",
+                        name: "body",
+                        label: "Body",
+                        required: true,
+                        isBody: true,
+                    },
+                ],
+            },
         ],
     },
 });
