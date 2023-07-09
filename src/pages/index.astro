@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_DESCRIPTION } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import { Image } from "@astrojs/image/components";
@@ -19,8 +19,6 @@ const projects = await Astro.glob("../content/projects/*.mdx");
 const activeProjects = projects.filter((project) => {
     return project.frontmatter.status === "Active" || "Paused";
 });
-
-console.log(activeProjects[0]);
 ---
 
 <BaseLayout>

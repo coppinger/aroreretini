@@ -3,13 +3,34 @@ import BaseHead from "../components/BaseHead.astro";
 import TopBar from "../components/TopBar.astro";
 import SideMenu from "../components/layout/side-menu/SideMenu.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_DESCRIPTION } from "../consts";
+
+const { title } = Astro.props;
+
+console.log(Astro.url.pathname);
+
+let pathArr = Astro.url.pathname.split("/");
+
+let formattedTitle =
+    Astro.url.pathname !== "/"
+        ? pathArr
+              .slice(1)
+              .map((page) => {
+                  return page
+                      .split("-")
+                      .map((word) => {
+                          return word.charAt(0).toUpperCase() + word.slice(1);
+                      })
+                      .join(" ");
+              })
+              .join("—") + " • Aroreretini"
+        : "Aroreretini";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead title={formattedTitle} description={SITE_DESCRIPTION} />
     </head>
     <body class="bg-slate-950 text-slate-200 font-apercu">
         <div class="w-full h-3 bg-pink-500"></div>
