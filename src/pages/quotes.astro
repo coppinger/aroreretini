@@ -4,6 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Quote from "../components/Quote.astro";
 
 const quotes = await Astro.glob("../content/quotes/*.mdx");
+
+const sortedQuotes = quotes.sort((a, b) => {
+    return (
+        new Date(b.frontmatter.publicationDate).valueOf() -
+        new Date(a.frontmatter.publicationDate).valueOf()
+    );
+});
 ---
 
 <BaseLayout>
