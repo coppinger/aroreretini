@@ -12,6 +12,7 @@ import ProjectsListItem from "../components/ProjectsListItem.astro";
 import NavSubTitle from "../components/layout/side-menu/NavSubTitle.astro";
 import IndexSidebar from "../components/IndexSidebar.astro";
 import Logo from "../components/layout/side-menu/Logo.astro";
+import { slugOptions } from "@lib/slug";
 
 const essays = await Astro.glob("../content/essays/*.mdx");
 const projects = await Astro.glob("../content/projects/*.mdx");
@@ -135,13 +136,16 @@ const activeProjects = projects.filter((project) => {
                     </p>
                     <div class="flex flex-wrap">
                         <p>
-                            I’m currently working on {
+                            I’m currently working on
+                            {
                                 activeProjects.map(
                                     ({ frontmatter: project }, index) => {
                                         return (
                                             <>
                                                 <a
-                                                    href={`/projects/${project.title}`}
+                                                    href={`/projects/${slugOptions(
+                                                        project.title
+                                                    )}`}
                                                     class="underline"
                                                 >
                                                     {project.title}
@@ -155,7 +159,7 @@ const activeProjects = projects.filter((project) => {
                                         );
                                     }
                                 )
-                            }.
+                            }
                         </p>
                     </div>
                     <p>
