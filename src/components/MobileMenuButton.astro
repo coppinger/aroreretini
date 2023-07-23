@@ -1,0 +1,27 @@
+<button class="alert z-20 relative" id="menu-button">
+    <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M3.5 14.5V17L28.5 17.5V14L3.5 14.5ZM3.5 5.5V8.5H28.5V5.5H3.5ZM3.5 23V26.5L28.5 26V23.5L3.5 23Z"
+            fill="white"></path>
+    </svg>
+</button>
+
+<script>
+    // Find all buttons with the `alert` class on the page.
+    const buttons = document.querySelectorAll("button.alert");
+
+    // Handle clicks on each button.
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            document.querySelector("#mobile-menu").classList.toggle("hidden");
+        });
+    });
+
+    console.log(buttons);
+</script>

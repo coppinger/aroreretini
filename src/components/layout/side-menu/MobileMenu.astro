@@ -1,0 +1,25 @@
+---
+import menuItems from "@lib/menuItems";
+import NavItem from "./NavItem.astro";
+---
+
+<div
+    class="hidden fixed h-screen w-screen z-10 bg-slate-950 flex justify-center items-center"
+    id="mobile-menu"
+>
+    <ul class="flex flex-col gap-8 ml-[-2px]">
+        {
+            menuItems().map(([href, title, subTitle]) => {
+                if (href == "divider") return <NavDivider text={title} />;
+                else
+                    return (
+                        <NavItem
+                            href={href}
+                            title={title}
+                            subTitle={subTitle}
+                        />
+                    );
+            })
+        }
+    </ul>
+</div>
