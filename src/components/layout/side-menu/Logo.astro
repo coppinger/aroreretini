@@ -3,7 +3,9 @@ import MobileMenuButton from "@components/MobileMenuButton.astro";
 const path = Astro.url.pathname;
 ---
 
-<div class="h-14 flex justify-between w-full md:justify-center items-center">
+<div
+    class="h-14 flex justify-between w-full md:justify-center items-center relative"
+>
     {
         path !== "/" ? (
             <a href="/" class="text-5xl text-white font-glamour">
@@ -13,7 +15,7 @@ const path = Astro.url.pathname;
             <h1 class="text-5xl text-white font-glamour">Aroreretini</h1>
         )
     }
-    <div class="md:hidden">
+    <div class="md:hidden relative w-full h-full flex items-center justify-end">
         <MobileMenuButton />
     </div>
 </div>
