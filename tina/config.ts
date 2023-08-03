@@ -88,7 +88,7 @@ export default defineConfig({
                         required: true,
                         ui: {
                             component: "select",
-                            options: ["Paused", "Active", "Dead"],
+                            options: ["Paused", "Active", "Dead", "Shipped"],
                         },
                     },
                     {

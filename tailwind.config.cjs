@@ -34,6 +34,10 @@ module.exports = {
         "fill-slate-950",
         "text-slate-950",
         "fill-slate-400",
+        "bg-fuchsia-300",
+        "fill-fuchsia-950",
+        "text-fuchsia-950",
+        "fill-fuchsia-400",
     ],
     theme: {
         extend: {
