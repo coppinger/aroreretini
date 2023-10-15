@@ -136,8 +136,11 @@ const activeProjects = projects.filter((project) => {
                     </p>
                     <div class="flex flex-wrap">
                         <p>
-                            I’m currently working on
-                            {
+                            I’m currently working on <a
+                                href="/projects/melody"
+                                class="underline">Melody</a
+                            >, a marketplace for music teachers.
+                            <!-- {
                                 activeProjects.map(
                                     ({ frontmatter: project }, index) => {
                                         return (
@@ -159,7 +162,7 @@ const activeProjects = projects.filter((project) => {
                                         );
                                     }
                                 )
-                            }
+                            } -->
                         </p>
                     </div>
                     <p>
