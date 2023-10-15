@@ -26,7 +26,9 @@ import Icon from "../components/Icon.astro";
                             <p class="text-slate-400">Email</p>
                         </div>
                         <hr />
-                        <a href="#" class="text-slate-400 underline anchor"
+                        <a
+                            href="#"
+                            class="text-slate-400 underline anchor alert"
                             >copy</a
                         >
                     </li>
@@ -49,12 +51,15 @@ import Icon from "../components/Icon.astro";
                         </div>
                         <hr />
                         <a
-                            href="https://discordapp.com/users/thecoppinger"
+                            href="https://discord.com/users/108050893722636288"
                             target="_blank"
                             class="underline anchor">TheCoppinger</a
                         >
 
-                        <a href="#" class="text-slate-400 underline anchor"
+                        <a
+                            href="#"
+                            class="text-slate-400 underline anchor"
+                            onclick="navigator.clipboard.writeText('TheCoppinger')"
                             >copy</a
                         >
                     </li>
@@ -138,3 +143,18 @@ import Icon from "../components/Icon.astro";
         </div>
     </main>
 </BaseLayout>
+
+<script>
+    const buttons = document.querySelectorAll("a.alert");
+    const emFirst = "charles";
+    const emSecond = "coppinger";
+    const emLast = "gmail";
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            navigator.clipboard.writeText(
+                `${emFirst}.${emSecond}@${emLast}.com`
+            );
+        });
+    });
+</script>

@@ -10,8 +10,8 @@ const { text, href, yes } = Astro.props;
             href={href}
             target="_blank"
             class={className(
-                `flex p-2 border-2 text-xs text-slate-300 w-fit uppercase tracking-widest font-bold h-fit ` +
-                    (yes ? "border-emerald-900" : "border-rose-900")
+                `flex p-2 border-2 text-xs text-slate-300 w-fit uppercase tracking-widest font-bold h-fit  ` +
+                    (yes ? "border-green-700" : "border-red-700")
             )}
         >
             {text} ↗
@@ -19,8 +19,8 @@ const { text, href, yes } = Astro.props;
     ) : (
         <div
             class={className(
-                `flex p-2 border-2 text-xs text-slate-300 w-fit uppercase tracking-widest font-bold h-fit ` +
-                    (yes ? "border-green-900" : "border-rose-900")
+                `flex p-2 border-2 text-xs text-slate-300 w-fit uppercase tracking-widest font-bold h-fit  ` +
+                    (yes ? "border-green-700" : "border-red-700")
             )}
         >
             {text}

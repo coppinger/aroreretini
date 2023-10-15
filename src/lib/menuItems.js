@@ -9,7 +9,7 @@ const menu = [
     // ["updates", "Updates", "What’s going on in my life"],
     // ["guides", "Guides", "Maps based on my experience"],
     // ["divider", "Credits"],
-    ["people", "People", "Those whom I’m grateful to"],
+    // ["people", "People", "Those whom I’m grateful to"],
     // ["prophets", "Prophets", "Those who’ve shaped my beliefs"],
     // ["divider", "Curation"],
     ["quotes", "Quotes", "A list of my favorite quotes"],
