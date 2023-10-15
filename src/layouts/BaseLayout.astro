@@ -24,6 +24,8 @@ let formattedTitle =
               })
               .join(" • ") + " Aroreretini"
         : "Aroreretini • personal site of Charlie Coppinger";
+
+const today = new Date();
 ---
 
 <!DOCTYPE html>
@@ -42,16 +44,32 @@ let formattedTitle =
                 <TopBar />
                 <slot name="main" />
                 <footer
-                    class="flex flex-col md:flex-row items-center gap-8 justify-center max-w-lg"
+                    class="flex flex-col justify-center text-center gap-8 max-w-lg border-t-2 border-slate-700 pt-8"
                 >
-                    <a href="https://hotlinewebring.club/charlie/previous"
-                        >← Prev</a
+                    <div
+                        class="flex flex-col md:flex-row items-center gap-8 justify-center"
                     >
-                    <p class="text-[#fa9aba]">
-                        Proud member of the Hotline Webring
-                    </p>
-                    <a href="https://hotlinewebring.club/charlie/next">Next →</a
-                    >
+                        <a href="https://hotlinewebring.club/charlie/previous"
+                            >← Prev</a
+                        >
+                        <div class="text-[#fa9aba]">
+                            <p>Proud member of the</p>
+                            <a
+                                href="https://hotlinewebring.club/"
+                                target="_blank"
+                                class="underline anchor whitespace-nowrap"
+                                >Hotline Webring ↗</a
+                            >
+                        </div>
+                        <a href="https://hotlinewebring.club/charlie/next"
+                            >Next →</a
+                        >
+                    </div>
+                    <div class="text-slate-400">
+                        &copy; {today.getFullYear()} Charlie Coppinger. All rights
+                        reserved.
+                    </div>
+                    <p>Made with 💖 from Aotearoa 🥝</p>
                 </footer>
             </div>
         </div>
