@@ -1,0 +1,98 @@
+---
+title: Dwarf
+cover: /images/dwarf-thumbnail.png
+status: Shipped
+date: 2023-10-08T11:00:00.000Z
+description: >-
+  Dwarf is a relaxed domain name marketplace for indie hackers and founders who
+  hoard domains.
+---
+
+## 0. TL;DR 🗒️
+
+* The goal was to learn [Svelte](svelte.dev/) & [SvelteKit](https://kit.svelte.dev/), but ended up trying out several things:
+  * [Prisma](https://www.prisma.io/) (an ORM)
+  * [Pocketbase](https://pocketbase.io/)/SQLite
+  * [Supabase](supabase.com/)/PostgreSQL
+* I ended up building Dwarf, a simple domain name marketplace, and my first full-stack web app
+* I heavily leaned on AI to do so, using ChatGPT & [Cursor](https://cursor.sh/) (VS Code fork w/ deep ChatGPT integrations)
+  * This greatly accelerated my learning!
+* I learnt lots, and a had a great time doing so, and Dwarf is now live and in use 🚢
+
+## 1. Learning 📚
+
+In August, I decided I wanted to try and pick up [Svelte](https://svelte.dev/), a Javascript component framework—I'd heard lots of good things about it, from lots of wonderfully smart people whom I admire and respect. When enough of these kinds of folks recommend something, I tend to pull the trigger.
+
+If I've learnt anything about learning, or more specifically, how I learn, it's that building something is the optimal way to learn. Building, as opposed to just following tutorials/reading docs, allows me to piece together context in a much faster fashion, with much better recall.
+
+Simply put, building makes concepts much easier to grok!
+
+As such, setting out to learn Svelte, I almost immediately looked for a simple but relevant idea I could work on in order to learn as optimally as possible.
+
+I quickly landed on the idea of creating a simple domain name marketplace, with a slight twist: instead of existing to cater to the listing and sales of highly valuable domains, my marketplace would cater to folks like me who accidentally hoarded domains after buying them for projects that never saw the light of day.
+
+So, with an idea in mind, I set out to bring it to life, diving into plenty of Svelte, SvelteKit & Supabase learning resources—docs, tutorials and YouTube videos.
+
+Not only that, I had the privilege of many wonderful folks [from my stream](https://twitch.tv/thecoppinger) helping me as I went, too, including the legendary [Huntabyte.](https://twitter.com/huntabyte/)
+
+Within a week, I'd covered a lot of ground, and I was absolutely hooked. Compared to React, Svelte felt like a perfectly cool breeze on a warm summers day; that is to say, it was extremely refreshing.
+
+## 2. Building 👷‍♂️
+
+As ever, the first thing I did was jump into FigJam and map out the basics of a userflow, different data types and a rough wireframe of the screens.
+
+The FigJam file: ![](</images/Monosnap Domain Garden - Figma 2023-10-16 10.57.51.png>)
+
+[https://www.figma.com/file/TOmAllln75qoDtGQnvF0fq/Domain-Garden](https://www.figma.com/file/TOmAllln75qoDtGQnvF0fq/Domain-Garden?type=whiteboard\&node-id=0%3A1\&t=zer1bYTUl4PMH6Ln-1)
+
+Once I had a rough idea of what I was creating, I moved on to designing a set of mockups in Figma.
+
+Where possible, I designed components in Figma that closely matched ShadCN Svelte components, as to reduce my implementation time. This worked really well when it came time to build out the site, and is something I've continued to do since.
+
+![](</images/Monosnap Indomain 2 - Figma 2023-10-16 11.01.53.png>)
+
+The Figma file: [https://www.figma.com/file/apXJuTItwT5rH3KBii95im/Indomain-2?type=design\&node-id=0%3A1\&mode=design\&t=i6yXB0cvgEOItXNn-1](https://www.figma.com/file/apXJuTItwT5rH3KBii95im/Indomain-2?type=design\&node-id=0%3A1\&mode=design\&t=i6yXB0cvgEOItXNn-1)
+
+Finally, I built out the landing page. This took about a day, and felt really good almost immediately, which was a nice sign of progress in my overall marketing and design skills.
+
+![](</images/Monosnap Indomain 2 - Figma 2023-10-16 11.06.28.png>)
+
+## 3. Shipping 🚢
+
+One of the best parts about building while learning is that you might just end up with something that you're excited to share with the world, and that's where I found myself at the end of building out Dwarf.
+
+My main ambition was simply to learn how to use Svelte & Supabase, so being able to ship something at the end was simply a massive bonus—and not only that, but it was also a low stake project, since I'd already fulfilled my objective, which makes shipping something a lot less intense, and a lot more fun.
+
+When it came to sharing Dwarf with the world, I mostly did so via Twitter, but I suppose also passively through my stream (one of the main benefits of building in public!).
+
+Oh, and I also had a great time writing lots of code from my bus to and from the office :)
+
+https://twitter.com/TheCoppinger/status/1700317737569206654
+https://twitter.com/TheCoppinger/status/1704637438893998440
+
+Even from a plane, at one point!
+
+https://twitter.com/TheCoppinger/status/1706784905022337506
+
+In the end, quite ironically, I ended up having to ship Dwarf from bed, sick with the flu :')
+
+https://twitter.com/TheCoppinger/status/1710827537948168449
+
+All up, the launch went really well; I was lucky to have lots of very encouraging and positive engagement on Twitter and on my stream, and within the first 7 days Dwarf ended up with 89 users, who listed a collective 252 domains.
+
+Overall, I'm incredibly happy with how the project went, and where it ended up.
+
+## 4. Learning's
+
+I learnt *so, so* much building and shipping Dwarf. Aside from my technical and design learning's, here are my main takeaways:
+
+* The current generation of AI is super OP when it comes to learning
+* I'd shunned component libraries until now, but [ShadCN](ui.shadcn.com/) is immensely valuable
+* I thought I'd become good at ruthlessly cutting features for an MVP, but I can always do better
+* Domain validation is a little trickier than I'd first assumed :)
+
+## 5. Gratitude
+
+I'm incredibly grateful to my wonderful Twitch community for the endless support and assistance in building Dwarf. I'm not sure I would have gotten anywhere near as far without you, and I certainly wouldn't have had so much fun while doing so.
+
+Likewise, a huge thank you to everyone who has been encouraging me over on Twitter. Doing so really helped keep the fire roaring, and for that, I'm very grateful.
